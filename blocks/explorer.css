@@ -1,0 +1,20 @@
+.explorer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "explorerImage" "explorerName" "addButton"
+    "explorerImage" "explorerDescription" "addButton";
+}
+.explorer__image {
+  grid-area: explorerImage;
+}
+.explorer__name {
+  grid-area: explorerName;
+}
+.explorer__description {
+  grid-area: explorerDescription;
+}
+.explorer__add-button {
+  grid-area: addButton;
+}
