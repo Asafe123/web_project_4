@@ -2,9 +2,8 @@
 }
 .header__title {
   position: static;
-  margin: 45px auto 41px 200px;
-  border: 1px solid #fff;
-  border-color: #545454;
+  margin: 45px auto 41px 0;
+  border-color: none;
 }
 .header__underline {
 }

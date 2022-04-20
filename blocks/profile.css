@@ -1,0 +1,58 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  min-width: 880px;
+  border-top: solid 1px gray;
+  padding-top: 36px;
+}
+.profile__image {
+  border-radius: 50%;
+  max-width: 127px;
+}
+.profile__text-wrapper {
+}
+.profile__text-top {
+  display: flex;
+  flex-direction: row;
+}
+.profile__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  margin: 0;
+}
+.profile__edit-button {
+  border-color: #fff;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../images/pencil.svg);
+  width: 24px;
+  height: 24px;
+  padding: 14px;
+  margin-left: 18px;
+  align-self: center;
+}
+.profile__description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* margin-top: 16px; */
+  margin: 0;
+}
+.profile__add-button {
+  height: 30px;
+  background-image: url(../images/plus-sign.svg);
+  border-color: #fff;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 150px;
+  height: 50px;
+  box-shadow: white;
+  margin-top: 36px;
+}
