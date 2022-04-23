@@ -1,0 +1,61 @@
+.form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 430px;
+  height: 330px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.form__fieldset {
+  padding-left: 30px;
+}
+
+.form__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 34px 0 24px 0;
+  color: black;
+}
+.form__input {
+  width: 358px;
+  border-color: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: black;
+  left: 36px;
+  padding-bottom: 13px;
+  padding-top: 30px;
+  border: none;
+  border-bottom: solid 1px gray;
+}
+.form__button {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 358px;
+  height: 50px;
+  margin-top: 48px;
+}
+.form__close-button {
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  background-color: transparent;
+  border: none;
+}
