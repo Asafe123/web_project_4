@@ -1,4 +1,13 @@
-.form {
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.popup__form {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -11,11 +20,11 @@
   flex-direction: column;
   align-self: center;
 }
-.form__fieldset {
+.popup__form-fieldset {
   padding-left: 30px;
 }
 
-.form__title {
+.popup__form-title {
   font-family: "Inter";
   font-style: normal;
   font-weight: 900;
@@ -24,7 +33,7 @@
   margin: 34px 0 24px 0;
   color: black;
 }
-.form__input {
+.popup__form-input {
   width: 358px;
   border-color: #ffffff;
   font-family: "Inter";
@@ -39,7 +48,7 @@
   border: none;
   border-bottom: solid 1px gray;
 }
-.form__button {
+.popup__submit-button {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -52,7 +61,7 @@
   height: 50px;
   margin-top: 48px;
 }
-.form__close-button {
+.popup__close-button {
   position: absolute;
   right: -40px;
   top: -40px;
