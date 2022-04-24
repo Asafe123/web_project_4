@@ -16,6 +16,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 25px 15px 31px 21px;
+  max-width: 246px;
 }
 .card__text {
   margin: 0;
@@ -25,6 +26,9 @@
   font-size: 24px;
   line-height: 29px;
   color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .card__heart-icon {
 }
