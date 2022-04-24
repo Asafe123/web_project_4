@@ -5,6 +5,10 @@
   right: 0;
   bottom: 0;
   background-color: rgb(0, 0, 0, 0.5);
+  display: none;
+}
+.popup_opened {
+  display: flex;
 }
 
 .popup__form {

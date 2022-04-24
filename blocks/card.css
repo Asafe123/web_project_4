@@ -30,5 +30,8 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.card__heart-icon {
+.card__like-icon {
+}
+.card__like-icon_active {
+  background-image: url(../images/heart-icon-active.svg);
 }
