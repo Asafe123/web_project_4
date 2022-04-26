@@ -1,9 +1,10 @@
 .profile {
   display: flex;
   justify-content: space-between;
-  min-width: 880px;
+  max-width: 880px;
   border-top: solid 1px gray;
   padding-top: 36px;
+  align-items: center;
 }
 .profile__image {
   border-radius: 50%;
