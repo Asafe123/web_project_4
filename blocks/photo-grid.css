@@ -8,6 +8,8 @@
 }
 @media screen and (max-width: 610px) {
   .photo-grid {
+    padding-top: 36px;
+
     display: flex;
     flex-direction: column;
   }

@@ -1,7 +1,7 @@
 .profile {
   display: flex;
-  justify-content: space-between;
-  min-width: 880px;
+  justify-content: space-around;
+  max-width: 880px;
   border-top: solid 1px gray;
   padding-top: 36px;
 }
@@ -10,6 +10,7 @@
   max-width: 127px;
 }
 .profile__text-wrapper {
+  margin-left: 15px;
 }
 .profile__text-top {
   display: flex;
@@ -30,10 +31,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(../images/pencil.svg);
-  width: 24px;
-  height: 24px;
-  padding: 14px;
-  margin-left: 18px;
+  padding: 10px;
+  margin: 0 18px;
   align-self: center;
 }
 .profile__ocupation {
@@ -42,7 +41,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  /* margin-top: 16px; */
+  margin-top: 16px;
   margin: 0;
 }
 .profile__add-button {
@@ -56,4 +55,37 @@
   height: 50px;
   box-shadow: white;
   margin-top: 36px;
+}
+@media screen and (max-width: 500px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 38px;
+  }
+  .profile__image {
+  }
+  .profile__edit-button {
+    padding: 7px;
+    margin: 0 10px;
+  }
+  .profile__text-wrapper {
+    padding-top: 36px;
+    text-align: center;
+  }
+  .profile__title {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .profile__ocupation {
+    padding-top: 14px;
+  }
+  .profile__add-button {
+    min-width: 282px;
+  }
 }

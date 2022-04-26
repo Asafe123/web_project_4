@@ -7,3 +7,9 @@
 }
 .header__underline {
 }
+@media screen and (max-width: 500px) {
+  .header__title {
+    max-width: 126px;
+    margin: 32px 0 28px 27px;
+  }
+}
