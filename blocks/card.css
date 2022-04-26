@@ -35,3 +35,9 @@
 .card__like-icon_active {
   background-image: url(../images/heart-icon-active.svg);
 }
+@media screen and (max-width: 895px) {
+  .card {
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+}
