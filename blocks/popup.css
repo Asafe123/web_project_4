@@ -24,7 +24,8 @@
   align-self: center;
 }
 .popup__form-fieldset {
-  padding: 0 36px;
+  margin: 0 36px;
+  position: relative;
 }
 
 .popup__form-title {
@@ -73,17 +74,29 @@
   top: -40px;
   background-color: transparent;
   border: none;
+  background-image: url(/images/closeIcon.svg);
 }
 @media screen and (max-width: 500px) {
   .popup__form {
     width: 282px;
-    height: 322px;
+    min-height: 322px;
+  }
+  .popup__form-fieldset {
+    margin: 0 22px;
   }
   .popup__form-title {
     font-size: 24px;
     line-height: 29px;
   }
+  .popup__form-input {
+    max-width: 238px;
+  }
   .popup__submit-button {
     width: 238px;
+    margin: 16px 0 25px;
+  }
+  .popup__close-button {
+    top: -60px;
+    right: 0;
   }
 }
