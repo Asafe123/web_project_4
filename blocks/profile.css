@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: row;
 }
-.profile__title {
+.profile__name {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -36,7 +36,11 @@
   margin: 0 18px;
   align-self: center;
 }
-.profile__ocupation {
+.profile__edit-button:hover {
+  opacity: 0.8;
+}
+
+.profile__occupation {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -57,6 +61,9 @@
   box-shadow: white;
   margin-top: 36px;
 }
+.profile__add-button:hover {
+  opacity: 0.6;
+}
 @media screen and (max-width: 500px) {
   .profile {
     display: flex;
@@ -71,10 +78,10 @@
     margin: 0 10px;
   }
   .profile__text-wrapper {
-    padding-top: 36px;
+    padding-top: 26px;
     text-align: center;
   }
-  .profile__title {
+  .profile__name {
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
@@ -83,7 +90,7 @@
     text-align: center;
     padding-bottom: 0;
   }
-  .profile__ocupation {
+  .profile__occupation {
     padding-top: 14px;
   }
   .profile__add-button {
