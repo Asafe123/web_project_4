@@ -1,16 +1,18 @@
-# Project 4: Around The U.S.
+# Project 4: Around the U.S.
 
 ### Overview
 
-* Figma
-* Images
+Technologies in site:
 
-**Figma**
+- This page is cross platform compatible, and can fit down to 320px Smartphone’s resolution.
+- JS code is used, making the page interactive and adjustable by the user.
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+**farther development Ideas**
 
-**Images**
+- Possibility to add images by special popup menu.
+- Page persistence, in order to permit the user adapts the page to his own needs, and keep changes in device.
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+Made Prowdly using JavaScript!
 
-Have fun with JavaScript!
+**site on gitHub Pages**
+https://asafe123.github.io/web_project_4/
