@@ -1,6 +1,6 @@
 .header {
 }
-.header__title {
+.header__logo {
   position: static;
   margin: 45px auto 41px 0;
   border-color: none;
@@ -8,7 +8,7 @@
 .header__underline {
 }
 @media screen and (max-width: 500px) {
-  .header__title {
+  .header__logo {
     max-width: 126px;
     margin: 28px 0 32px 27px;
   }

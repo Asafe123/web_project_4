@@ -1,4 +1,4 @@
-.photo-grid {
+.photo-grid__list {
   padding-top: 46.5px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
@@ -9,7 +9,7 @@
   padding-left: 0;
 }
 @media screen and (max-width: 610px) {
-  .photo-grid {
+  .photo-grid__list {
     padding-top: 36px;
     display: flex;
     flex-direction: column;

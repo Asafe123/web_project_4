@@ -31,6 +31,13 @@
   overflow: hidden;
 }
 .card__like-icon {
+  background-image: url(../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border-color: transparent;
+  width: 25px;
+  padding: 0;
 }
 .card__like-icon_active {
   background-image: url(../images/heart-icon-active.svg);
