@@ -29,11 +29,19 @@
         <div class="profile__text-wrapper">
           <div class="profile__text-top">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button type="button" class="profile__edit-button"></button>
+            <button
+              type="button"
+              aria-label="edit"
+              class="profile__edit-button"
+            ></button>
           </div>
           <p class="profile__occupation">explorer</p>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button
+          type="button"
+          aria-label="add"
+          class="profile__add-button"
+        ></button>
       </section>
       <section class="photo-grid">
         <ul class="photo-grid__list">
@@ -48,7 +56,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -63,7 +71,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -78,7 +86,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -89,7 +97,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -104,7 +112,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -119,7 +127,7 @@
               <button
                 type="button"
                 class="card__like-icon"
-                alt="heart icon"
+                aria-label="like"
               ></button>
             </div>
           </li>
@@ -131,23 +139,29 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button"></button>
-        <form class="popup__form">
+        <button
+          type="button"
+          aria-label="close"
+          class="popup__close-button"
+        ></button>
+        <form name="popup" class="popup__form">
           <h2 class="popup__form-title">Edit profile</h2>
           <input
             class="popup__form-input popup__form-input_type_name"
             type="text"
             placeholder="Name"
+            name="name"
           />
           <input
             class="popup__form-input popup__form-input_type_occupation"
             type="text"
             placeholder="About me"
+            name="occupation"
           />
-          <button class="popup__submit-button">Save</button>
+          <button type="submit" class="popup__submit-button">Save</button>
         </form>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

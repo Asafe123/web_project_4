@@ -1,6 +1,4 @@
 .card {
-  max-height: 400px;
-  max-width: 282px;
   border-radius: 10px;
   background-color: #fff;
   list-style: none;
@@ -20,7 +18,7 @@
 }
 .card__text {
   margin: 0;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

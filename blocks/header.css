@@ -1,11 +1,7 @@
 .header {
 }
 .header__logo {
-  position: static;
   margin: 45px auto 41px 0;
-  border-color: none;
-}
-.header__underline {
 }
 @media screen and (max-width: 500px) {
   .header__logo {
