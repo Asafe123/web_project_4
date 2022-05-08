@@ -37,6 +37,10 @@
   width: 25px;
   padding: 0;
 }
+.card__like-icon:hover {
+  background-image: url(../images/heart-icon-hover.svg);
+  cursor: pointer;
+}
 .card__like-icon_active {
   background-image: url(../images/heart-icon-active.svg);
 }
