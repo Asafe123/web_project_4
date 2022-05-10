@@ -85,7 +85,7 @@
     flex-direction: column;
     padding-top: 38px;
   }
-  .profile__left-side {
+  .profile__wrapper {
     flex-direction: column;
   }
   .profile__image {
