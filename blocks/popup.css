@@ -9,14 +9,12 @@
 }
 .popup_opened {
   display: flex;
-  justify-content: start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .popup__container {
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 330px;
   background-color: #ffffff;
   border-radius: 10px;
 }
@@ -96,6 +94,7 @@
   }
   .popup__form-input {
     max-width: 238px;
+    padding-bottom: 9px;
   }
   .popup__submit-button {
     width: 238px;
