@@ -1,4 +1,4 @@
-.photo-grid__list {
+.places__list {
   margin: 0;
   padding-top: 46.5px;
   display: grid;
@@ -10,7 +10,7 @@
   padding-left: 0;
 }
 @media screen and (max-width: 610px) {
-  .photo-grid__list {
+  .places__list {
     padding-top: 36px;
     display: flex;
     flex-direction: column;
