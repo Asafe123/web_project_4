@@ -45,6 +45,7 @@ const profileInputOccupation = document.querySelector(
   ".popup__form-input_type_occupation"
 );
 const popupImageEditor = document.querySelector(".popup_image_editor");
+
 /////////////////////
 // functions/////////
 /////////////////////
@@ -69,6 +70,7 @@ function saveProfileForm(evt) {
   profileName.textContent = profileInputName.value;
   profileOccupation.textContent = profileInputOccupation.value;
 }
+
 //////////////////////
 //EVENT LISTENERS/////
 //////////////////////
@@ -86,15 +88,12 @@ const cardTemplate = document
   .content.querySelector(".places__item");
 
 initialCards.forEach(function (card) {
-  //clone template
   const cardElement = cardTemplate.cloneNode(true);
-  // query title element
   cardElement.querySelector(".card__title").textContent = card.title;
-  // query image element
-  cardElement.querySelector(".card__image").style.backgroundImage = card.link;
-  // add event listeners
+  cardElement.querySelector(
+    ".card__image"
+  ).style.backgroundImage = `url(${card.link})`
+  placesList.append(cardElement);
 
-  someList.append(cardElement);
-  console.log(cardElement);
-  // append it to the list
+  console.log(card.title);
 });
