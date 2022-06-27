@@ -90,10 +90,10 @@ const cardTemplate = document
 initialCards.forEach(function (card) {
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector(".card__title").textContent = card.title;
+
   cardElement.querySelector(
     ".card__image"
-  ).style.backgroundImage = `url(${card.link})`
-  placesList.append(cardElement);
+  ).style.backgroundImage = `url(${card.link})`;
 
-  console.log(card.title);
+  placesList.append(cardElement);
 });
