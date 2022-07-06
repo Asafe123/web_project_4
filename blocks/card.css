@@ -4,9 +4,11 @@
   list-style: none;
 }
 .card__image {
-  width: 282px;
+  max-width: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  min-height: 282px;
+  background-image: url(../images/heart-icon.svg);
 }
 
 .card__text-area {

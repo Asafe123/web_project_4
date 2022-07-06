@@ -58,14 +58,14 @@ function activePopup() {
 function activeAddImagePopup() {
   popupImageEditor.classList.add("popup_opened");
 }
-function closePopup() {
+function closeProfilePopup() {
   popup.classList.remove("popup_opened");
 }
 function saveProfileForm(evt) {
   //erase defualt settings
   evt.preventDefault();
   //close popup
-  closePopup();
+  closeProfilePopup();
   //enter values on profile window
   profileName.textContent = profileInputName.value;
   profileOccupation.textContent = profileInputOccupation.value;
@@ -76,7 +76,7 @@ function saveProfileForm(evt) {
 //////////////////////
 editProfileButton.addEventListener("click", activePopup);
 addImageButton.addEventListener("click", activeAddImagePopup);
-closeButton.addEventListener("click", closePopup);
+closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);
 
 //////////////////////
@@ -90,10 +90,8 @@ const cardTemplate = document
 initialCards.forEach(function (card) {
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector(".card__title").textContent = card.title;
-
   cardElement.querySelector(
     ".card__image"
   ).style.backgroundImage = `url(${card.link})`;
-
   placesList.append(cardElement);
 });
