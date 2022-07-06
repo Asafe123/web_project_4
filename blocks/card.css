@@ -2,13 +2,14 @@
   border-radius: 10px;
   background-color: #fff;
   list-style: none;
+  min-width: 282px;
 }
 .card__image {
   max-width: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   min-height: 282px;
-  background-image: url(../images/heart-icon.svg);
+  background-size: cover;
 }
 
 .card__text-area {
