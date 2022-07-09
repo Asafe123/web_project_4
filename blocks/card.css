@@ -3,6 +3,12 @@
   background-color: #fff;
   list-style: none;
   min-width: 282px;
+  transition: ease-in-out 0.5s;
+}
+.card:hover {
+  transform: scale(1.2) rotate(-720deg);
+  transition: ease-in-out 1s;
+  box-shadow: 0px 0px 30px purple;
 }
 .card__image {
   max-width: 282px;

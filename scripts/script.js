@@ -1,8 +1,8 @@
 //cards info
 const initialCards = [
   {
-    title: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+    title: "Tel-Aviv Landscape",
+    link: "https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2020/06/Best-areas-to-stay-in-Tel-Aviv-scaled-e1593008399620.jpg?w=1506&ssl=1",
   },
   {
     title: "Lake Louise",
@@ -45,6 +45,7 @@ const profileInputOccupation = document.querySelector(
   ".popup__form-input_type_occupation"
 );
 const popupImageEditor = document.querySelector(".popup_image_editor");
+const popupImageCloseButton = document.querySelector(".popup-image_type_close");
 
 /////////////////////
 // functions/////////
@@ -70,6 +71,9 @@ function saveProfileForm(evt) {
   profileName.textContent = profileInputName.value;
   profileOccupation.textContent = profileInputOccupation.value;
 }
+function closeImagePopup() {
+  popupImageEditor.classList.remove("popup_opened");
+}
 
 //////////////////////
 //EVENT LISTENERS/////
@@ -78,6 +82,7 @@ editProfileButton.addEventListener("click", activePopup);
 addImageButton.addEventListener("click", activeAddImagePopup);
 closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);
+popupImageCloseButton.addEventListener("click", closeImagePopup);
 
 //////////////////////
 //TEMPLATES///////////
