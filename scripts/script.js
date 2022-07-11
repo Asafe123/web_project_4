@@ -33,7 +33,9 @@ const placesList = document.querySelector(".places__list");
 /////////////////////
 // queryselectors////
 /////////////////////
-const editProfileButton = document.querySelector(".profile__edit-button");
+const activeProfileButton = document.querySelector(
+  ".profile__active-popup-button"
+);
 const addImageButton = document.querySelector(".profile__add-button");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
@@ -74,11 +76,22 @@ function saveProfileForm(evt) {
 function closeImagePopup() {
   popupImageEditor.classList.remove("popup_opened");
 }
+//this function will take care of adding an image by link//
+//WORK SITE//
+function saveImageForm(evt) {
+  //erase defualt settings
+  evt.preventDefault();
+  //close popup
+  closeImagePopup();
+  //enter values on profile window
+  profileName.textContent = profileInputName.value;
+  profileOccupation.textContent = profileInputOccupation.value;
+}
 
 //////////////////////
 //EVENT LISTENERS/////
 //////////////////////
-editProfileButton.addEventListener("click", activePopup);
+activeProfileButton.addEventListener("click", activePopup);
 addImageButton.addEventListener("click", activeAddImagePopup);
 closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);
