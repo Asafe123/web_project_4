@@ -48,6 +48,14 @@ const profileInputOccupation = document.querySelector(
 );
 const popupImageEditor = document.querySelector(".popup_image_editor");
 const popupImageCloseButton = document.querySelector(".popup-image_type_close");
+// objects of add image form:
+const formImageTitle = document.querySelector(
+  ".popup__form-input_type_image-title"
+);
+const formImageLink = document.querySelector(".popup__form-input_type_link");
+const formImageSubmit = document.querySelector(
+  ".popup__submit-button_type_submit-image"
+);
 
 /////////////////////
 // functions/////////
@@ -64,6 +72,9 @@ function activeAddImagePopup() {
 function closeProfilePopup() {
   popup.classList.remove("popup_opened");
 }
+function closeImagePopup() {
+  popupImageEditor.classList.remove("popup_opened");
+}
 function saveProfileForm(evt) {
   //erase defualt settings
   evt.preventDefault();
@@ -73,19 +84,16 @@ function saveProfileForm(evt) {
   profileName.textContent = profileInputName.value;
   profileOccupation.textContent = profileInputOccupation.value;
 }
-function closeImagePopup() {
-  popupImageEditor.classList.remove("popup_opened");
-}
-//this function will take care of adding an image by link//
-//WORK SITE//
-function saveImageForm(evt) {
-  //erase defualt settings
-  evt.preventDefault();
-  //close popup
-  closeImagePopup();
-  //enter values on profile window
-  profileName.textContent = profileInputName.value;
-  profileOccupation.textContent = profileInputOccupation.value;
+
+// !!!CODE IN PROSESS!!!!--->
+// !!!CODE IN PROSESS!!!!--->
+// !!!CODE IN PROSESS!!!!--->
+
+function makeNewCard() {
+  newCard.title = formImageTitle.value;
+  newCard.src = formImageLink.value;
+  initialCards.push(newCard);
+  return newCard;
 }
 
 //////////////////////
@@ -96,6 +104,10 @@ addImageButton.addEventListener("click", activeAddImagePopup);
 closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);
 popupImageCloseButton.addEventListener("click", closeImagePopup);
+// !!!CODE IN PROSESS!!!!--->
+// !!!CODE IN PROSESS!!!!--->
+// !!!CODE IN PROSESS!!!!--->
+formImageSubmit.addEventListener("submit", makeNewCard);
 
 //////////////////////
 //TEMPLATES///////////
