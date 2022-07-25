@@ -33,9 +33,7 @@ const placesList = document.querySelector(".places__list");
 /////////////////////
 // queryselectors////
 /////////////////////
-const activeProfileButton = document.querySelector(
-  ".profile__active-popup-button"
-);
+const activeProfileButton = document.querySelector(".profile__edit-button");
 const addImageButton = document.querySelector(".profile__add-button");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
@@ -46,7 +44,7 @@ const profileInputName = document.querySelector(".popup__form-input_type_name");
 const profileInputOccupation = document.querySelector(
   ".popup__form-input_type_occupation"
 );
-const popupImageEditor = document.querySelector(".popup_image_editor");
+const popupAddBtn = document.querySelector(".popup_type_add");
 const popupImageCloseButton = document.querySelector(".popup-image_type_close");
 // objects of add image form:
 const formImageTitle = document.querySelector(
@@ -67,13 +65,13 @@ function activePopup() {
   profileInputOccupation.value = profileOccupation.textContent;
 }
 function activeAddImagePopup() {
-  popupImageEditor.classList.add("popup_opened");
+  popupAddBtn.classList.add("popup_opened");
 }
 function closeProfilePopup() {
   popup.classList.remove("popup_opened");
 }
 function closeImagePopup() {
-  popupImageEditor.classList.remove("popup_opened");
+  popupAddBtn.classList.remove("popup_opened");
 }
 function saveProfileForm(evt) {
   //erase defualt settings
@@ -85,16 +83,7 @@ function saveProfileForm(evt) {
   profileOccupation.textContent = profileInputOccupation.value;
 }
 
-// !!!CODE IN PROSESS!!!!--->
-// !!!CODE IN PROSESS!!!!--->
-// !!!CODE IN PROSESS!!!!--->
-
-function makeNewCard() {
-  newCard.title = formImageTitle.value;
-  newCard.src = formImageLink.value;
-  initialCards.push(newCard);
-  return newCard;
-}
+function makeNewCard() {}
 
 //////////////////////
 //EVENT LISTENERS/////
@@ -104,24 +93,29 @@ addImageButton.addEventListener("click", activeAddImagePopup);
 closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);
 popupImageCloseButton.addEventListener("click", closeImagePopup);
-// !!!CODE IN PROSESS!!!!--->
-// !!!CODE IN PROSESS!!!!--->
-// !!!CODE IN PROSESS!!!!--->
 formImageSubmit.addEventListener("submit", makeNewCard);
 
 //////////////////////
 //TEMPLATES///////////
 //////////////////////
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".places__item");
-
-initialCards.forEach(function (card) {
+function generateCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector(".card__title").textContent = card.title;
   cardElement.querySelector(
     ".card__image"
   ).style.backgroundImage = `url(${card.link})`;
-  placesList.append(cardElement);
+  return cardElement;
+}
+function renderCard(card, container) {
+  container.append(card);
+}
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".places__item");
+
+initialCards.forEach(function (card) {
+  const newCard = generateCard(card);
+  renderCard(newCard, placesList);
 });

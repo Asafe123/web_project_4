@@ -3,12 +3,15 @@
   background-color: #fff;
   list-style: none;
   min-width: 282px;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.2s;
+  filter: grayscale(100%);
 }
 .card:hover {
-  transform: scale(1.2) rotate(-720deg);
+  transform: scale(1.2) rotate(-720deg) skew(5deg, 0deg);
   transition: ease-in-out 1s;
-  box-shadow: 0px 0px 30px purple;
+  box-shadow: 0px 0px 40px #6d214f;
+  filter: grayscale(0%);
+  z-index: 1;
 }
 .card__image {
   max-width: 282px;

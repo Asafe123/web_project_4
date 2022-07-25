@@ -1,0 +1,7 @@
+.popup__container_type_preview {
+  background: transparent;
+}
+.popup__container_type_preview_title {
+  font-size: 12px;
+  font-family: "Inter", Arial, sans-serif;
+}
