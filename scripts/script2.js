@@ -45,7 +45,7 @@ initialCards.forEach(function (cardData) {
   const title = listItem.querySelector(".card__title");
   const image = listItem.querySelector(".card__image");
 
-  title.textContent = cardData.name;
-  image.style.backgroundImage = `url(${cardData.link}))`;
+  title.textContent = cardData.title;
+  image.style.backgroundImage = `url(${cardData.link})`;
   list.append(listItem);
 });
