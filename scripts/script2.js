@@ -1,5 +1,3 @@
-alert("asaf, its time to sleep");
-
 const initialCards = [
   {
     title: "Tel-Aviv Landscape",
@@ -40,4 +38,14 @@ const image = listItem.querySelector(".card__image");
 title.textContent = "qwerty";
 image.style.backgroundImage = `url(https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2020/06/Best-areas-to-stay-in-Tel-Aviv-scaled-e1593008399620.jpg?w=1506&ssl=1)`;
 list.append(listItem);
-const listItem = "123";
+
+initialCards.forEach(function (cardData) {
+  const listItem = templateListItem.cloneNode(true);
+
+  const title = listItem.querySelector(".card__title");
+  const image = listItem.querySelector(".card__image");
+
+  title.textContent = cardData.name;
+  image.style.backgroundImage = `url(${cardData.link}))`;
+  list.append(listItem);
+});

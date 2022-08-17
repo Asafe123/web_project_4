@@ -33,7 +33,7 @@ const placesList = document.querySelector(".places__list");
 /////////////////////
 // queryselectors////
 /////////////////////
-const activeProfileButton = document.querySelector(".profile__edit-button");
+const editProfileButton = document.querySelector(".profile__edit-button");
 const addImageButton = document.querySelector(".profile__add-button");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
@@ -88,7 +88,7 @@ function makeNewCard() {}
 //////////////////////
 //EVENT LISTENERS/////
 //////////////////////
-activeProfileButton.addEventListener("click", activePopup);
+editProfileButton.addEventListener("click", activePopup);
 addImageButton.addEventListener("click", activeAddImagePopup);
 closeButton.addEventListener("click", closeProfilePopup);
 profileForm.addEventListener("submit", saveProfileForm);

@@ -2,7 +2,7 @@
   border-radius: 10px;
   background-color: #fff;
   list-style: none;
-  min-width: 282px;
+  max-width: 282px;
   transition: ease-in-out 0.2s;
   filter: grayscale(100%);
 }
