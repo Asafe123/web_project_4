@@ -29,6 +29,10 @@ const templateListItem = document
   .querySelector(".card-template")
   .content.querySelector(".card");
 const list = document.querySelector(".places__list");
+// queryselectors
+const ProfileName = document.querySelector(".profile__name");
+const ProfileOccupation = document.querySelector(".profile__occupation");
+
 //modals
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
@@ -49,11 +53,27 @@ const profileOccupationInput = document.querySelector(
 const CardNameInput = document.querySelector(".popup__input_type_card-title");
 const CardLinkInput = document.querySelector(".popup__input_type_card-link");
 
-//event listeners
+// forms
+const editform = editModal.querySelector(".popup__form");
+const addCardForm = addCardModal.querySelector(".popup__form");
 
+//event listeners
 function toggleModal(modal) {
   modal.classList.toggle("popup_opened");
 }
+
+addCardForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  generateCard({ name: CardNameInput.value, link: CardLinkInput.value });
+  toggleModal(addCardModal);
+});
+
+editform.addEventListener("submit", (e) => {
+  e.preventDefault();
+  ProfileName.textContent = profileNameInput.value;
+  ProfileOccupation.textContent = profileOccupationInput.value;
+  toggleModal(editModal);
+});
 
 editProfileButton.addEventListener("click", () => {
   toggleModal(editModal);
@@ -69,7 +89,7 @@ addCardModalModalCloseButton.addEventListener("click", () => {
   toggleModal(addCardModal);
 });
 
-initialCards.forEach(function (cardData) {
+function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
 
   const title = listItem.querySelector(".card__title");
@@ -78,4 +98,6 @@ initialCards.forEach(function (cardData) {
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
   list.append(listItem);
-});
+}
+
+initialCards.forEach(generateCard);
