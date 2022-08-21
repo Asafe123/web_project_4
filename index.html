@@ -45,7 +45,7 @@
           class="profile__add-button"
         ></button>
       </section>
-      <section class="photo-grid">
+      <section class="places">
         <ul class="places__list"></ul>
       </section>
     </main>
@@ -53,23 +53,19 @@
       <p class="footer__text">© 2021 Around The U.S.</p>
     </footer>
     <!-- profile popup -->
-    <div class="popup popup_profile_editor">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
-        <button
-          type="button"
-          aria-label="close"
-          class="popup__close-button"
-        ></button>
+        <button type="button" aria-label="close" class="popup__close"></button>
         <form name="popup" class="popup__form">
           <h2 class="popup__form-title">Edit profile</h2>
           <input
-            class="popup__form-input popup__form-input_type_name"
+            class="popup__form-input popup__input_type_name"
             type="text"
             placeholder="Name"
             name="name"
           />
           <input
-            class="popup__form-input popup__form-input_type_occupation"
+            class="popup__form-input popup__input_type_occupation"
             type="text"
             placeholder="About me"
             name="occupation"
@@ -78,27 +74,28 @@
         </form>
       </div>
     </div>
-    <!-- addimage popup -->
-    <div class="popup popup_type_add">
+
+    <!-- addCard popup -->
+    <div class="popup popup_type_add-card">
       <div class="popup__container">
         <button
           type="button"
           aria-label="close"
-          class="popup__close-button popup-image_type_close"
+          class="popup__close popup-image_type_close"
         ></button>
         <form name="popup" class="popup__form">
           <h2 class="popup__form-title">New place</h2>
           <input
-            class="popup__form-input popup__form-input_type_link"
+            class="popup__form-input popup__input_type_card-title"
             type="text"
             placeholder="Title"
-            name="Title"
+            name="card-title"
           />
           <input
-            class="popup__form-input popup__form-input_type_image-title"
+            class="popup__form-input popup__input_type_card-link"
             type="text"
-            placeholder="Image link"
-            name="Image link"
+            placeholder="Image URL"
+            name="card-link"
           />
           <button
             type="submit"
@@ -115,7 +112,7 @@
         <button
           type="button"
           aria-label="close"
-          class="popup__close-button"
+          class="popup__close"
         ></button>
         <img
           class="popup__preview-image"
