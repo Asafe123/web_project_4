@@ -99,7 +99,7 @@
           />
           <button
             type="submit"
-            class="popup__submit-button popup__submit-button_type_submit-image"
+            class="popup__submit-button popup__submit-button_type_submit-image\"
           >
             Create
           </button>
@@ -107,26 +107,23 @@
       </div>
     </div>
     <!-- full screen image popup -->
-    <!-- <div class="popup popup_profile_editor popup_opened">
-      <div class="popup__container popup__container_type_preview">
-        <button
-          type="button"
-          aria-label="close"
-          class="popup__close"
-        ></button>
+    <div class="popup popup__image-modal">
+      <div class="popup__container popup__type_preview">
+        <button type="button" aria-label="close" class="popup__close"></button>
         <img
-          class="popup__preview-image"
-          src="https://code.s3.yandex.net/web-code/lago.jpg"
+          class="popup__type_preview-image"
+          src="https://code.s3.yandex.net/web-code/bald-mountains.jpg"
           alt=""
         />
-        <p class="popup__container_type_preview_title">Lake Louise</p>
+        <p class="popup__type_preview-title">PREVIEW EXAMPLE</p>
       </div>
-    </div> -->
+    </div>
 
     <script src="./scripts/script2.js" defer></script>
 
     <template class="card-template">
       <li class="places__item card">
+        <button type="button" class="card__delete-button"></button>
         <div class="card__image"></div>
         <div class="card__text-area">
           <h2 class="card__title"></h2>

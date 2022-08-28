@@ -36,14 +36,19 @@ const ProfileOccupation = document.querySelector(".profile__occupation");
 //modals
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
+const imageModal = document.querySelector(".popup__image-modal");
 //close buttons
 const editModalCloseButton = editModal.querySelector(".popup__close");
 const addCardModalModalCloseButton =
   addCardModal.querySelector(".popup__close");
+const popupPreviewCloseButton = imageModal.querySelector(".popup__close");
 
 //open modal
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
+// open preview
+const previewImage = document.querySelector(".popup__type_preview-image");
+const previewTitle = document.querySelector(".popup__type_preview-title");
 
 //inputs
 const profileNameInput = document.querySelector(".popup__input_type_name");
@@ -56,6 +61,7 @@ const CardLinkInput = document.querySelector(".popup__input_type_card-link");
 // forms
 const editform = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
+// image modal elements
 
 //event listeners
 function toggleModal(modal) {
@@ -84,6 +90,7 @@ editModalCloseButton.addEventListener("click", () => {
 });
 addCardButton.addEventListener("click", () => {
   toggleModal(addCardModal);
+  addCardForm.reset();
 });
 addCardModalModalCloseButton.addEventListener("click", () => {
   toggleModal(addCardModal);
@@ -94,10 +101,30 @@ function generateCard(cardData) {
 
   const title = listItem.querySelector(".card__title");
   const image = listItem.querySelector(".card__image");
+  const deleteButton = listItem.querySelector(".card__delete-button");
+  const likeButton = listItem.querySelector(".card__like-icon");
 
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-icon_type_active");
+  });
+  // Delete card
+  deleteButton.addEventListener("click", () => {
+    listItem.remove();
+  });
+  //Open preview
+  image.addEventListener("click", () => {
+    // open modal => toggle(imageModal)
+    imageModal.classList.toggle("popup_opened");
+    // fill image src => element.src = "
+    previewImage.src = cardData.link;
+    // fill caption => element.textcontent
+    previewTitle.textContent = cardData.name;
+  });
+
   list.append(listItem);
 }
 
 initialCards.forEach(generateCard);
+// close preview

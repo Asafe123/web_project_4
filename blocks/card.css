@@ -1,18 +1,11 @@
 .card {
+  position: relative;
   border-radius: 10px;
   background-color: #fff;
   list-style: none;
   max-width: 282px;
-  transition: ease-in-out 0.2s;
-  filter: grayscale(100%);
 }
-.card:hover {
-  transform: scale(1.2) rotate(-720deg) skew(5deg, 0deg);
-  transition: ease-in-out 1s;
-  box-shadow: 0px 0px 40px #6d214f;
-  filter: grayscale(0%);
-  z-index: 1;
-}
+
 .card__image {
   max-width: 282px;
   border-top-left-radius: 10px;
@@ -53,9 +46,22 @@
   opacity: 0.5;
   cursor: pointer;
 }
-.card__like-icon_active {
+.card__like-icon_type_active {
   background-image: url(../images/heart-icon-active.svg);
 }
+
+.card__delete-button {
+  position: absolute;
+  background-image: url(../images/Trash.svg);
+  background-color: transparent;
+  border-color: transparent;
+  background-repeat: no-repeat;
+  top: 18px;
+  right: 16px;
+  width: 25px;
+  height: 25px;
+}
+
 @media screen and (max-width: 895px) {
   .card {
     margin: 0 auto;
