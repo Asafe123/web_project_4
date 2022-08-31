@@ -94,7 +94,8 @@
   font-family: "Inter", Arial, sans-serif;
 }
 .popup__type_preview-image {
-  width: 75%;
+  max-height: 75vmin;
+  width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;

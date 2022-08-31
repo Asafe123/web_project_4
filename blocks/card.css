@@ -3,7 +3,7 @@
   border-radius: 10px;
   background-color: #fff;
   list-style: none;
-  max-width: 282px;
+  width: 282px;
 }
 
 .card__image {
