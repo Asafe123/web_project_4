@@ -49,8 +49,8 @@ const popupPreviewCloseButton = document.querySelector(
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 // open preview
-const previewImage = document.querySelector(".popup__preview_type_image");
-const previewTitle = document.querySelector(".popup__preview_type_title");
+const previewImage = document.querySelector(".popup__preview-image");
+const previewTitle = document.querySelector(".popup__preview-title");
 
 //inputs
 const profileNameInput = document.querySelector(".popup__input_type_name");

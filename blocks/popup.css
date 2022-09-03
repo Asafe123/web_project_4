@@ -92,12 +92,12 @@
   position: relative;
   background: transparent;
 }
-.popup__preview_type_title {
+.popup__preview-title {
   padding-left: 12.5%;
   font-size: 12px;
   font-family: "Inter", Arial, sans-serif;
 }
-.popup__preview_type_image {
+.popup__preview-image {
   max-height: 75vmin;
   width: 80%;
   display: block;
