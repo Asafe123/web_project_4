@@ -36,7 +36,7 @@ const ProfileOccupation = document.querySelector(".profile__occupation");
 //modals
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
-const imageModal = document.querySelector(".popup__image-modal");
+const imageModal = document.querySelector(".image-modal");
 //close buttons
 const editModalCloseButton = editModal.querySelector(".popup__close");
 const addCardModalModalCloseButton =
@@ -49,8 +49,8 @@ const popupPreviewCloseButton = document.querySelector(
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 // open preview
-const previewImage = document.querySelector(".popup_type_preview-image");
-const previewTitle = document.querySelector(".popup_type_preview-title");
+const previewImage = document.querySelector(".popup__preview_type_image");
+const previewTitle = document.querySelector(".popup__preview_type_title");
 
 //inputs
 const profileNameInput = document.querySelector(".popup__input_type_name");

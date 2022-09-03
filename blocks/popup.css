@@ -88,16 +88,16 @@
   cursor: pointer;
 }
 
-.popup_type_preview {
+.popup__preview {
   position: relative;
   background: transparent;
 }
-.popup_type_preview-title {
+.popup__preview_type_title {
   padding-left: 12.5%;
   font-size: 12px;
   font-family: "Inter", Arial, sans-serif;
 }
-.popup_type_preview-image {
+.popup__preview_type_image {
   max-height: 75vmin;
   width: 80%;
   display: block;
