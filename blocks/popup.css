@@ -88,16 +88,16 @@
   cursor: pointer;
 }
 
-.popup__type_preview {
+.popup_type_preview {
   position: relative;
   background: transparent;
 }
-.popup__type_preview-title {
+.popup_type_preview-title {
   padding-left: 12.5%;
   font-size: 12px;
   font-family: "Inter", Arial, sans-serif;
 }
-.popup__type_preview-image {
+.popup_type_preview-image {
   max-height: 75vmin;
   width: 80%;
   display: block;
@@ -106,6 +106,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  .popup {
+    display: flex;
+  }
   .popup__form {
     padding: 0 22px;
   }
@@ -118,11 +121,14 @@
     max-width: 238px;
     padding-bottom: 9px;
   }
+  .popup__input {
+    max-width: 238px;
+  }
   .popup__submit-button {
     width: 238px;
-    margin: 16px 0 25px;
     font-size: 14px;
     line-height: 17px;
+    margin: 16px auto 25px auto;
   }
   .popup__close {
     position: absolute;
