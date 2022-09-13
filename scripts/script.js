@@ -30,17 +30,16 @@ const templateListItem = document
   .content.querySelector(".card");
 const list = document.querySelector(".places__list");
 // queryselectors
-const ProfileName = document.querySelector(".profile__name");
-const ProfileOccupation = document.querySelector(".profile__occupation");
+const profileName = document.querySelector(".profile__name");
+const profileOccupation = document.querySelector(".profile__occupation");
 
 //modals
-const editModal = document.querySelector(".popup_type_edit");
+const editProfileModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".image-modal");
 //close buttons
-const editModalCloseButton = editModal.querySelector(".popup__close");
-const addCardModalModalCloseButton =
-  addCardModal.querySelector(".popup__close");
+const editModalCloseButton = editProfileModal.querySelector(".popup__close");
+const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
 const popupPreviewCloseButton = document.querySelector(
   ".popup__close_type_preview"
 );
@@ -57,11 +56,11 @@ const profileNameInput = document.querySelector(".popup__input_type_name");
 const profileOccupationInput = document.querySelector(
   ".popup__input_type_occupation"
 );
-const CardNameInput = document.querySelector(".popup__input_type_card-title");
-const CardLinkInput = document.querySelector(".popup__input_type_card-link");
+const cardNameInput = document.querySelector(".popup__input_type_card-title");
+const cardLinkInput = document.querySelector(".popup__input_type_card-link");
 
 // forms
-const editform = editModal.querySelector(".popup__form");
+const editForm = editProfileModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 // image modal elements
 
@@ -72,29 +71,29 @@ function toggleModal(modal) {
 
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  generateCard({ name: CardNameInput.value, link: CardLinkInput.value });
+  generateCard({ name: cardNameInput.value, link: cardLinkInput.value });
   toggleModal(addCardModal);
 });
 
-editform.addEventListener("submit", (e) => {
+editForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  ProfileName.textContent = profileNameInput.value;
-  ProfileOccupation.textContent = profileOccupationInput.value;
-  toggleModal(editModal);
+  profileName.textContent = profileNameInput.value;
+  profileOccupation.textContent = profileOccupationInput.value;
+  toggleModal(editProfileModal);
 });
 
 editProfileButton.addEventListener("click", () => {
-  toggleModal(editModal);
+  toggleModal(editProfileModal);
 });
 
 editModalCloseButton.addEventListener("click", () => {
-  toggleModal(editModal);
+  toggleModal(editProfileModal);
 });
 addCardButton.addEventListener("click", () => {
   toggleModal(addCardModal);
   addCardForm.reset();
 });
-addCardModalModalCloseButton.addEventListener("click", () => {
+addCardModalCloseButton.addEventListener("click", () => {
   toggleModal(addCardModal);
 });
 
