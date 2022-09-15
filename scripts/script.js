@@ -73,6 +73,7 @@ addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardNameInput.value, link: cardLinkInput.value });
   toggleModal(addCardModal);
+  addCardForm.reset();
 });
 
 editForm.addEventListener("submit", (e) => {
@@ -93,6 +94,7 @@ addCardButton.addEventListener("click", () => {
   toggleModal(addCardModal);
   addCardForm.reset();
 });
+
 addCardModalCloseButton.addEventListener("click", () => {
   toggleModal(addCardModal);
 });
@@ -104,6 +106,7 @@ function generateCard(cardData) {
   const image = listItem.querySelector(".card__image");
   const deleteButton = listItem.querySelector(".card__delete-button");
   const likeButton = listItem.querySelector(".card__like-icon");
+  const submitButton = document.querySelector(".popup__submit-button");
 
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
@@ -120,6 +123,7 @@ function generateCard(cardData) {
     imageModal.classList.toggle("popup_opened");
     // fill image src => element.src = "
     previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
     // fill caption => element.textcontent
     previewTitle.textContent = cardData.name;
     // close preview
