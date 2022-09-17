@@ -148,4 +148,7 @@
   .popup__close_type_form {
     right: 0px;
   }
+  .popup_type_image-modal {
+    padding-top: 100px;
+  }
 }
