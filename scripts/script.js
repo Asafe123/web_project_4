@@ -24,101 +24,104 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
-
-// queryselectors//
+////////////////////
+// queryselectors///
+////////////////////
 const templateListItem = document
   .querySelector(".card-template")
   .content.querySelector(".card");
 const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
-//modals
+//modals queryselectors
 const editProfileModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
-//close buttons
+//close buttons queryselectors
 const editModalCloseButton = editProfileModal.querySelector(".popup__close");
 const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
 const popupPreviewCloseButton = document.querySelector(
   ".popup__close_type_preview"
 );
-//open modal
+//open modal queryselectors
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
-// open preview
+// open preview queryselectors
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
-//inputs
+//inputs queryselectors
 const profileNameInput = document.querySelector(".popup__input_type_name");
 const profileOccupationInput = document.querySelector(
   ".popup__input_type_occupation"
 );
 const cardNameInput = document.querySelector(".popup__input_type_card-title");
 const cardLinkInput = document.querySelector(".popup__input_type_card-link");
-// forms
+// forms queryselectors
 const editForm = editProfileModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
-//event listeners
-function toggleModal(modal) {
-  modal.classList.toggle("popup_opened");
+//open/close modal functions ->
+function openModal(modal) {
+  modal.classList.add("popup_opened");
 }
+function closeModal(modal) {
+  modal.classList.remove("popup_opened");
+}
+
+/////////////////////////
+////Event listeners//////
+/////////////////////////
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardNameInput.value, link: cardLinkInput.value });
-  toggleModal(addCardModal);
+  closeModal(addCardModal);
   addCardForm.reset();
 });
-
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileOccupation.textContent = profileOccupationInput.value;
-  toggleModal(editProfileModal);
+  closeModal(editProfileModal);
 });
-
 editProfileButton.addEventListener("click", () => {
-  toggleModal(editProfileModal);
+  openModal(editProfileModal);
 });
-
 editModalCloseButton.addEventListener("click", () => {
-  toggleModal(editProfileModal);
+  closeModal(editProfileModal);
 });
 addCardButton.addEventListener("click", () => {
-  toggleModal(addCardModal);
+  openModal(addCardModal);
   addCardForm.reset();
 });
-
 addCardModalCloseButton.addEventListener("click", () => {
-  toggleModal(addCardModal);
+  closeModal(addCardModal);
+});
+popupPreviewCloseButton.addEventListener("click", () => {
+  imageModal.classList.remove("popup_opened");
 });
 
 function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
   const title = listItem.querySelector(".card__title");
+  const likeButton = listItem.querySelector(".card__like-icon");
   const image = listItem.querySelector(".card__image");
   const deleteButton = listItem.querySelector(".card__delete-button");
-  const likeButton = listItem.querySelector(".card__like-icon");
-
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
+  // Like button feature
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-icon_type_active");
   });
-  // Delete card
+  // Delete card feature
   deleteButton.addEventListener("click", () => {
     listItem.remove();
   });
-  //Open preview
+  //Open preview feature
   image.addEventListener("click", () => {
-    imageModal.classList.toggle("popup_opened");
+    imageModal.classList.add("popup_opened");
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
   });
-
-  list.append(listItem);
+  list.prepend(listItem);
 }
 initialCards.forEach(generateCard);
-popupPreviewCloseButton.addEventListener("click", () => {
-  imageModal.classList.remove("popup_opened");
-});
