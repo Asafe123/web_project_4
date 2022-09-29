@@ -104,9 +104,8 @@
   display: block;
   max-height: 75vh;
 }
-
-.image-modal {
-  max-height: 50%;
+.popup_type_image-modal {
+  padding-top: 40px;
 }
 @media screen and (max-width: 500px) {
   .popup {
