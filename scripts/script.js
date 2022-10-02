@@ -66,13 +66,59 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
 }
+///////////////////
+///BIG FUNCTIONS///
+///////////////////
+
+// generate card ->
+function generateCard(cardData) {
+  const listItem = templateListItem.cloneNode(true);
+  const title = listItem.querySelector(".card__title");
+  const likeButton = listItem.querySelector(".card__like-icon");
+  const image = listItem.querySelector(".card__image");
+  const deleteButton = listItem.querySelector(".card__delete-button");
+  title.textContent = cardData.name;
+  image.style.backgroundImage = `url(${cardData.link})`;
+  // Like button feature
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-icon_type_active");
+  });
+  // Delete card feature
+  deleteButton.addEventListener("click", () => {
+    listItem.remove();
+  });
+  //Open preview feature
+  image.addEventListener("click", () => {
+    imageModal.classList.add("popup_opened");
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewTitle.textContent = cardData.name;
+  });
+  return listItem;
+}
+// render card to the website ->
+function renderCard(listItem) {
+  list.prepend(listItem);
+}
+function RenderInitialCards() {
+  initialCards.forEach((cardData) => {
+    const card = generateCard(cardData);
+    renderCard(card);
+  });
+}
+RenderInitialCards();
 
 /////////////////////////
 ////Event listeners//////
 /////////////////////////
+
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  generateCard({ name: cardNameInput.value, link: cardLinkInput.value });
+  const card = generateCard({
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  });
+  renderCard(card);
   closeModal(addCardModal);
   addCardForm.reset();
 });
@@ -98,30 +144,3 @@ addCardModalCloseButton.addEventListener("click", () => {
 popupPreviewCloseButton.addEventListener("click", () => {
   imageModal.classList.remove("popup_opened");
 });
-
-function generateCard(cardData) {
-  const listItem = templateListItem.cloneNode(true);
-  const title = listItem.querySelector(".card__title");
-  const likeButton = listItem.querySelector(".card__like-icon");
-  const image = listItem.querySelector(".card__image");
-  const deleteButton = listItem.querySelector(".card__delete-button");
-  title.textContent = cardData.name;
-  image.style.backgroundImage = `url(${cardData.link})`;
-  // Like button feature
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-icon_type_active");
-  });
-  // Delete card feature
-  deleteButton.addEventListener("click", () => {
-    listItem.remove();
-  });
-  //Open preview feature
-  image.addEventListener("click", () => {
-    imageModal.classList.add("popup_opened");
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
-  });
-  list.prepend(listItem);
-}
-initialCards.forEach(generateCard);
