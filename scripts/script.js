@@ -89,7 +89,7 @@ function generateCard(cardData) {
   });
   //Open preview feature
   image.addEventListener("click", () => {
-    imageModal.classList.add("popup_opened");
+    openModal(imageModal);
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
@@ -100,13 +100,13 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
-function RenderInitialCards() {
+function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = generateCard(cardData);
     renderCard(card);
   });
 }
-RenderInitialCards();
+renderInitialCards();
 
 /////////////////////////
 ////Event listeners//////
@@ -131,16 +131,12 @@ editForm.addEventListener("submit", (e) => {
 editProfileButton.addEventListener("click", () => {
   openModal(editProfileModal);
 });
-editModalCloseButton.addEventListener("click", () => {
-  closeModal(editProfileModal);
-});
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  addCardForm.reset();
 });
-addCardModalCloseButton.addEventListener("click", () => {
-  closeModal(addCardModal);
-});
-popupPreviewCloseButton.addEventListener("click", () => {
-  imageModal.classList.remove("popup_opened");
+// universal close button Handeler ->
+const closeButtons = document.querySelectorAll(".popup__close");
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closeModal(popup));
 });

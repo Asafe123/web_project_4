@@ -102,8 +102,6 @@
   display: block;
   max-height: 75vh;
 }
-.popup_type_image-modal {
-}
 @media screen and (max-width: 500px) {
   .popup {
     display: flex;
