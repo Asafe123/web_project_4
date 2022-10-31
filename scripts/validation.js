@@ -2,6 +2,7 @@ function showError(input) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = error;
+  input.classList.add("popup__input_theme_error");
 }
 function hideError(input) {
   const errorElement = document.querySelector(`#${input.id}-error`);
@@ -12,8 +13,10 @@ function hideError(input) {
 function checkValidity(input) {
   if (input.validity.valid) {
     hideError(input);
+    console.log("valid");
   } else {
     showError(input);
+    console.log("not valid");
   }
 }
 
