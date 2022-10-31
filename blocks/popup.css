@@ -61,6 +61,10 @@
 .popup__input:focus {
   outline: none;
 }
+.card__error-wrapper {
+  width: 358px;
+}
+
 .popup__button {
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
@@ -150,5 +154,8 @@
   }
   .popup__close_type_preview {
     right: -33px;
+  }
+  .card__error-wrapper {
+    width: 242px;
   }
 }
