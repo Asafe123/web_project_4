@@ -20,6 +20,17 @@ function checkValidity(input) {
   }
 }
 
+function toggleButtonState(inputs) {
+  const isFormValid = inputs.every((input) => input.validity.valid);
+  if (isFormValid) {
+    button.disabled = false;
+    button.classList.remove("popup__button_disabled");
+  } else {
+    button.disabled = false;
+    button.classList.add("popup__button_disabled");
+  }
+}
+
 function enableValidation(settings) {
   // find all forms
   const forms = [...document.querySelectorAll(".popup__form")];

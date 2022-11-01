@@ -1,7 +1,3 @@
-.popup__input_theme_error {
-  color: rgba(255, 0, 0, 1);
-  border-bottom: solid 1px rgba(255, 0, 0, 1);
-}
 .popup {
   display: flex;
   position: fixed;
@@ -116,6 +112,10 @@
   margin: 0 0;
   display: block;
   max-height: 75vh;
+}
+.popup__input_theme_error {
+  color: rgba(255, 0, 0, 1);
+  border-bottom: solid 1px rgba(255, 0, 0, 1);
 }
 @media screen and (max-width: 500px) {
   .popup__form {
