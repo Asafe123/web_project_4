@@ -80,9 +80,19 @@
   margin-bottom: 36px;
   border: none;
 }
-.popup__submit-button:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+.popup__button_disabled {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 1);
+  opacity: 0.2;
+  border: 1px solid #000000;
+}
+.popup__button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
 }
 .popup__close {
   position: absolute;

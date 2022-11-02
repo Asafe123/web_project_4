@@ -13,28 +13,23 @@ function hideError(input) {
 function checkValidity(input) {
   if (input.validity.valid) {
     hideError(input);
-    console.log("valid");
   } else {
     showError(input);
-    console.log("not valid");
   }
 }
-
-function toggleButtonState(inputs) {
+function toggleButtonState(inputs, button) {
   const isFormValid = inputs.every((input) => input.validity.valid);
   if (isFormValid) {
     button.disabled = false;
     button.classList.remove("popup__button_disabled");
   } else {
-    button.disabled = false;
+    button.disabled = true;
     button.classList.add("popup__button_disabled");
   }
 }
-
 function enableValidation(settings) {
   // find all forms
   const forms = [...document.querySelectorAll(".popup__form")];
-  console.log(forms);
   // prevent default
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
@@ -43,17 +38,14 @@ function enableValidation(settings) {
 
     // search all inputs inside forms
     const inputs = [...form.querySelectorAll(".popup__input")];
+    const button = form.querySelector(".popup__button");
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        console.log("who clicked here?");
         checkValidity(input);
+        toggleButtonState(inputs, button);
       });
     });
   });
-  // subscribe to its change
-  // chack if input is valid
-  // if valid => no action needed
-  // if not valid => show error
 }
 
 const config = {
