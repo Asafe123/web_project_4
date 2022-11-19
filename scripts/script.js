@@ -66,6 +66,12 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
 }
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
+
 ///////////////////
 ///BIG FUNCTIONS///
 ///////////////////
