@@ -34,10 +34,12 @@ const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
 //modals queryselectors
+const modal = document.querySelector(".popup");
+
 const editProfileModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
-//close buttons queryselectors
+//close buttons queryselectorsquerySelector
 const editModalCloseButton = editProfileModal.querySelector(".popup__close");
 const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
 const popupPreviewCloseButton = document.querySelector(
@@ -62,15 +64,21 @@ const addCardForm = addCardModal.querySelector(".popup__form");
 //open/close modal functions ->
 function openModal(modal) {
   modal.classList.add("popup_opened");
+  document.addEventListener("keydown", closeModalByEscape);
 }
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
 }
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
+
+modal.addEventListener("click", function (evt) {
+  if (
+    evt.target.classList.contains("popup") ||
+    evt.target.classList.contains("popup__close")
+  ) {
+    closeModal(editProfileModal);
   }
-}
+});
 
 ///////////////////
 ///BIG FUNCTIONS///
@@ -118,6 +126,7 @@ renderInitialCards();
 ////Event listeners//////
 /////////////////////////
 
+//Submit button Listeners ->
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const card = generateCard({
