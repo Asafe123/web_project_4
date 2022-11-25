@@ -60,11 +60,19 @@ const cardLinkInput = document.querySelector(".popup__input_type_card-link");
 const editForm = editProfileModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 //open/close modal functions ->
+function closeModalByEscape(evt) {
+  if (evt.keyCode === 27) {
+    const openedPopup = document.querySelector(".popup_opened");
+    closeModal(openedPopup);
+  }
+}
 function openModal(modal) {
   modal.classList.add("popup_opened");
+  document.addEventListener("keydown", closeModalByEscape);
 }
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
 }
 ///////////////////
 ///BIG FUNCTIONS///
