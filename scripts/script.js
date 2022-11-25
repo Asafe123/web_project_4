@@ -66,13 +66,21 @@ function closeModalByEscape(evt) {
     closeModal(openedPopup);
   }
 }
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("popup_opened");
   document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 ///////////////////
 ///BIG FUNCTIONS///
