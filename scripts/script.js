@@ -136,7 +136,12 @@ addCardForm.addEventListener("submit", (e) => {
   });
   renderCard(card);
   closeModal(addCardModal);
+  // THIS IS NEW. CHECK THIS ->
   addCardForm.reset();
+  const input = form.querySelectorAll(".popup__input");
+  const button = form.querySelector(".popup__button");
+  toggleButtonState(input, button);
+  // TILL HERE
 });
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -150,7 +155,7 @@ editProfileButton.addEventListener("click", () => {
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
-// universal close button Handeler ->
+// universal close butto  n Handeler ->
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
