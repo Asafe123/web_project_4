@@ -73,6 +73,8 @@ function closeModalOnRemoteClick(evt) {
 }
 
 function openModal(modal) {
+  // const popupButton = form.querySelector("popup__button");
+  // popupButton.classList.add("popup__button_disabled");
   modal.classList.add("popup_opened");
   document.addEventListener("keydown", closeModalByEscape);
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
@@ -128,6 +130,19 @@ renderInitialCards();
 ////Event listeners//////
 /////////////////////////
 
+// this is a new function. check and ADAPT
+function toggleButtonState(inputs, button) {
+  const isFormValid = inputs.every((input) => input.validity.valid);
+  if (isFormValid) {
+    button.disabled = false;
+    button.classList.remove("popup__button_disabled");
+  } else {
+    button.disabled = true;
+    button.classList.add("popup__button_disabled");
+  }
+}
+// end of new function
+
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const card = generateCard({
@@ -138,10 +153,9 @@ addCardForm.addEventListener("submit", (e) => {
   closeModal(addCardModal);
   // THIS IS NEW. CHECK THIS ->
   addCardForm.reset();
-  const input = form.querySelectorAll(".popup__input");
-  const button = form.querySelector(".popup__button");
-  toggleButtonState(input, button);
-  // TILL HERE
+  const input = addCardForm.querySelector(".popup__input");
+  const button = addCardForm.querySelector(".popup__button");
+  toggleButtonState(input, button); // TILL HERE
 });
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -149,13 +163,19 @@ editForm.addEventListener("submit", (e) => {
   profileOccupation.textContent = profileOccupationInput.value;
   closeModal(editProfileModal);
 });
+function fillProfileForm() {
+  profileNameInput.value = profileName.textContent;
+  profileOccupationInput.value = profileOccupation.textContent;
+}
+
 editProfileButton.addEventListener("click", () => {
   openModal(editProfileModal);
+  fillProfileForm();
 });
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
-// universal close butto  n Handeler ->
+// universal close button Handeler ->
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");

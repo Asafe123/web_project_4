@@ -35,7 +35,6 @@ function enableValidation(settings) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-
     // search all inputs inside forms
     const inputs = [...form.querySelectorAll(".popup__input")];
     const button = form.querySelector(".popup__button");
