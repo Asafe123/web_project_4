@@ -34,7 +34,6 @@ const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
 //modals queryselectors
-const modal = document.querySelector(".popup");
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
@@ -150,11 +149,7 @@ addCardForm.addEventListener("submit", (e) => {
   });
   renderCard(card);
   closeModal(addCardModal);
-  // THIS IS NEW. CHECK THIS ->
   addCardForm.reset();
-  const input = addCardForm.querySelector(".popup__input");
-  const button = addCardForm.querySelector(".popup__button");
-  toggleButtonState(input, button); // TILL HERE
 });
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -174,9 +169,9 @@ editProfileButton.addEventListener("click", () => {
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
   // queryselector inputs
-  const inputs = [...modal.querySelectorAll(".popup__input")];
+  const inputs = [...addCardModal.querySelectorAll(".popup__input")];
   // queryselectot button
-  const button = modal.querySelector(".popup__button");
+  const button = addCardModal.querySelector(".popup__button");
   // call toggleButton StateButton
   toggleButtonState(inputs, button);
 });
@@ -186,4 +181,3 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => closeModal(popup));
 });
-// upload to git 10:05 01/12/2022
