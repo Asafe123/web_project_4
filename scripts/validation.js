@@ -1,13 +1,13 @@
-function showError(input) {
+function showError(input, settings) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = error;
-  input.classList.add("popup__input_theme_error");
+  input.classList.add(settings.inputErrorClass);
 }
-function hideError(input) {
+function hideError(input, settings) {
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = "";
-  input.classList.remove("popup__input_theme_error");
+  input.classList.remove(settings.inputErrorClass);
 }
 
 function checkValidity(input) {
@@ -17,31 +17,31 @@ function checkValidity(input) {
     showError(input);
   }
 }
-function toggleButtonState(inputs, button) {
+function toggleButtonState(inputs, button, settings) {
   const isFormValid = inputs.every((input) => input.validity.valid);
   if (isFormValid) {
     button.disabled = false;
-    button.classList.remove("popup__button_disabled");
+    button.classList.remove(settings.inactiveButtonClass);
   } else {
     button.disabled = true;
-    button.classList.add("popup__button_disabled");
+    button.classList.add(settings.inactiveButtonClass);
   }
 }
 function enableValidation(settings) {
   // find all forms
-  const forms = [...document.querySelectorAll(".popup__form")];
+  const forms = [...document.querySelectorAll(settings.formSelector)];
   // prevent default
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
     // search all inputs inside forms
-    const inputs = [...form.querySelectorAll(".popup__input")];
-    const button = form.querySelector(".popup__button");
+    const inputs = [...form.querySelectorAll(settings.inputSelector)];
+    const button = form.querySelector(settings.submitButtonSelector);
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkValidity(input);
-        toggleButtonState(inputs, button);
+        toggleButtonState(inputs, button, settings);
       });
     });
   });

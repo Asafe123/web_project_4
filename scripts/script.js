@@ -149,11 +149,7 @@ addCardForm.addEventListener("submit", (e) => {
   });
   renderCard(card);
   closeModal(addCardModal);
-  // THIS IS NEW. CHECK THIS ->
   addCardForm.reset();
-  const input = addCardForm.querySelector(".popup__input");
-  const button = addCardForm.querySelector(".popup__button");
-  toggleButtonState(input, button); // TILL HERE
 });
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -173,10 +169,9 @@ editProfileButton.addEventListener("click", () => {
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
   // queryselector inputs
-  const inputs = [...form.querySelectorAll(".popup__input")];
+  const inputs = [...addCardModal.querySelectorAll(".popup__input")];
   // queryselectot button
-  debugger;
-  const button = form.querySelector(".popup__button");
+  const button = addCardModal.querySelector(".popup__button");
   // call toggleButton StateButton
   toggleButtonState(inputs, button);
 });
