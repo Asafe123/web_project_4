@@ -39,9 +39,12 @@ function enableValidation(settings) {
     const inputs = [...form.querySelectorAll(settings.inputSelector)];
     const button = form.querySelector(settings.submitButtonSelector);
     inputs.forEach((input) => {
+      // queryelectors elements
+      // define Toggle buttonstate at OPENING WINDOW
+      // good luck. this is the LAST fix before submitting.
       input.addEventListener("input", () => {
         checkValidity(input);
-        toggleButtonState(inputs, button, settings);
+        toggleButtonState(inputs, button, config);
       });
     });
   });
