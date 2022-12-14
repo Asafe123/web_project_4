@@ -168,12 +168,12 @@ editProfileButton.addEventListener("click", () => {
 });
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
+  oggleButtonState(inputs, button);
   // queryselector inputs
   const inputs = [...addCardModal.querySelectorAll(".popup__input")];
   // queryselectot button
   const button = addCardModal.querySelector(".popup__button");
   // call toggleButton StateButton
-  toggleButtonState(inputs, button);
 });
 // universal close button Handeler ->
 const closeButtons = document.querySelectorAll(".popup__close");

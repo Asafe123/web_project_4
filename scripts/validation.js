@@ -9,16 +9,18 @@ function hideError(input, settings) {
   errorElement.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 }
-
-function checkValidity(input) {
+function toggleError(input) {
   if (input.validity.valid) {
     hideError(input);
   } else {
     showError(input);
   }
 }
+function checkFormValidity(inputs) {
+  inputs.every((input) => input.validity.valid);
+}
 function toggleButtonState(inputs, button, settings) {
-  const isFormValid = inputs.every((input) => input.validity.valid);
+  const isFormValid = this.checkFormValidity(inputs);
   if (isFormValid) {
     button.disabled = false;
     button.classList.remove(settings.inactiveButtonClass);
@@ -39,17 +41,13 @@ function enableValidation(settings) {
     const inputs = [...form.querySelectorAll(settings.inputSelector)];
     const button = form.querySelector(settings.submitButtonSelector);
     inputs.forEach((input) => {
-      // queryelectors elements
-      // define Toggle buttonstate at OPENING WINDOW
-      // good luck. this is the LAST fix before submitting.
       input.addEventListener("input", () => {
-        checkValidity(input);
         toggleButtonState(inputs, button, config);
+        toggleError(input);
       });
     });
   });
 }
-
 const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
