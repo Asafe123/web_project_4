@@ -24,6 +24,15 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
+const setting = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 ////////////////////
 // queryselectors///
 ////////////////////
@@ -71,7 +80,6 @@ function closeModalOnRemoteClick(evt) {
     closeModal(evt.target);
   }
 }
-
 function openModal(modal) {
   modal.classList.add("popup_opened");
   document.addEventListener("keydown", closeModalByEscape);
@@ -123,24 +131,9 @@ function renderInitialCards() {
   });
 }
 renderInitialCards();
-
 /////////////////////////
 ////Event listeners//////
 /////////////////////////
-
-// this is a new function. check and ADAPT
-function toggleButtonState(inputs, button) {
-  const isFormValid = inputs.every((input) => input.validity.valid);
-  if (isFormValid) {
-    button.disabled = false;
-    button.classList.remove("popup__button_disabled");
-  } else {
-    button.disabled = true;
-    button.classList.add("popup__button_disabled");
-  }
-}
-// end of new function
-
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const card = generateCard({
@@ -161,19 +154,18 @@ function fillProfileForm() {
   profileNameInput.value = profileName.textContent;
   profileOccupationInput.value = profileOccupation.textContent;
 }
-
 editProfileButton.addEventListener("click", () => {
   openModal(editModal);
   fillProfileForm();
 });
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  oggleButtonState(inputs, button);
   // queryselector inputs
   const inputs = [...addCardModal.querySelectorAll(".popup__input")];
   // queryselectot button
   const button = addCardModal.querySelector(".popup__button");
   // call toggleButton StateButton
+  toggleButtonState(inputs, button, setting);
 });
 // universal close button Handeler ->
 const closeButtons = document.querySelectorAll(".popup__close");

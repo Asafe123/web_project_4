@@ -9,17 +9,18 @@ function hideError(input, settings) {
   errorElement.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 }
-function toggleError(input) {
+function toggleError(input, config) {
   if (input.validity.valid) {
-    hideError(input);
+    hideError(input, config);
   } else {
-    showError(input);
+    showError(input, config);
   }
 }
 function checkFormValidity(inputs) {
-  inputs.every((input) => input.validity.valid);
+  return inputs.every((input) => input.validity.valid);
 }
 function toggleButtonState(inputs, button, settings) {
+  debugger;
   const isFormValid = this.checkFormValidity(inputs);
   if (isFormValid) {
     button.disabled = false;
@@ -30,20 +31,17 @@ function toggleButtonState(inputs, button, settings) {
   }
 }
 function enableValidation(settings) {
-  // find all forms
   const forms = [...document.querySelectorAll(settings.formSelector)];
-  // prevent default
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    // search all inputs inside forms
     const inputs = [...form.querySelectorAll(settings.inputSelector)];
     const button = form.querySelector(settings.submitButtonSelector);
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
+        toggleError(input, config);
         toggleButtonState(inputs, button, config);
-        toggleError(input);
       });
     });
   });
