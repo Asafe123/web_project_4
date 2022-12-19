@@ -20,7 +20,6 @@ function checkFormValidity(inputs) {
   return inputs.every((input) => input.validity.valid);
 }
 function toggleButtonState(inputs, button, settings) {
-  debugger;
   const isFormValid = this.checkFormValidity(inputs);
   if (isFormValid) {
     button.disabled = false;

@@ -69,8 +69,9 @@ const cardLinkInput = document.querySelector(".popup__input_type_card-link");
 const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 //open/close modal functions ->
+const escValue = 27;
 function closeModalByEscape(evt) {
-  if (evt.keyCode === 27) {
+  if (evt.keyCode === escValue) {
     const openedPopup = document.querySelector(".popup_opened");
     closeModal(openedPopup);
   }
@@ -144,12 +145,13 @@ addCardForm.addEventListener("submit", (e) => {
   closeModal(addCardModal);
   addCardForm.reset();
 });
-editForm.addEventListener("submit", (e) => {
+function insertProfileInfo(e) {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileOccupation.textContent = profileOccupationInput.value;
   closeModal(editModal);
-});
+}
+editForm.addEventListener("submit", insertProfileInfo);
 function fillProfileForm() {
   profileNameInput.value = profileName.textContent;
   profileOccupationInput.value = profileOccupation.textContent;
