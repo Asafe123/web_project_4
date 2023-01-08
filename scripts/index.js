@@ -1,4 +1,5 @@
 import "./validation.js";
+import { openModal, closeModal } from "./utils.js";
 
 const initialCards = [
   {
@@ -71,28 +72,7 @@ const cardLinkInput = document.querySelector(".popup__input_type_card-link");
 const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 //open/close modal functions ->
-const escValue = 27;
-function closeModalByEscape(evt) {
-  if (evt.keyCode === escValue) {
-    const openedPopup = document.querySelector(".popup_opened");
-    closeModal(openedPopup);
-  }
-}
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
-function openModal(modal) {
-  modal.classList.add("popup_opened");
-  document.addEventListener("keydown", closeModalByEscape);
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-}
-function closeModal(modal) {
-  modal.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeModalByEscape);
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-}
+
 ///////////////////
 ///BIG FUNCTIONS///
 ///////////////////
