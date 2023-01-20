@@ -1,4 +1,4 @@
-const escValue = 27;
+export const escValue = 27;
 function closeModalByEscape(evt) {
   if (evt.keyCode === escValue) {
     const openedPopup = document.querySelector(".popup_opened");
