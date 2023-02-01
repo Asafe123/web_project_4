@@ -32,7 +32,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.card__like-button {
+.card__like-icon {
   background-image: url(../images/heart-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -41,11 +41,11 @@
   width: 25px;
   padding: 0;
 }
-.card__like-button:hover {
+.card__like-icon:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-.card__like-button_type_active {
+.card__like-icon_type_active {
   background-image: url(../images/heart-icon-active.svg);
 }
 .card__delete-button {
