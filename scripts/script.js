@@ -33,41 +33,34 @@ const setting = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-////////////////////
-// queryselectors///
-////////////////////
+// querySelectors =>
 const templateListItem = document
   .querySelector(".card-template")
   .content.querySelector(".card");
 const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
-//modals queryselectors
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
-//close buttons queryselectors
 const editModalCloseButton = editModal.querySelector(".popup__close");
 const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
 const popupPreviewCloseButton = document.querySelector(
   ".popup__close_type_preview"
 );
-//open modal queryselectors
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
-// open preview queryselectors
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
-//inputs queryselectors
 const profileNameInput = document.querySelector(".popup__input_type_name");
 const profileOccupationInput = document.querySelector(
   ".popup__input_type_occupation"
 );
 const cardNameInput = document.querySelector(".popup__input_type_card-title");
 const cardLinkInput = document.querySelector(".popup__input_type_card-link");
-// forms queryselectors
 const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
+
 //open/close modal functions ->
 const escValue = 27;
 function closeModalByEscape(evt) {
@@ -91,10 +84,6 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
-///////////////////
-///BIG FUNCTIONS///
-///////////////////
-
 // generate card ->
 function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
@@ -132,9 +121,7 @@ function renderInitialCards() {
   });
 }
 renderInitialCards();
-/////////////////////////
-////Event listeners//////
-/////////////////////////
+
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const card = generateCard({
