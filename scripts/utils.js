@@ -1,11 +1,11 @@
 const escValue = 27;
-export function closeModalByEscape(evt) {
+function closeModalByEscape(evt) {
   if (evt.keyCode === escValue) {
     const openedPopup = document.querySelector(".popup_opened");
     closeModal(openedPopup);
   }
 }
-export function closeModalOnRemoteClick(evt) {
+function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.target);
   }

@@ -13,6 +13,9 @@ export class FormValidator {
     this._formElement = formElement;
   }
 
+  _showInputError() {}
+  _hideInputError() {}
+  _checkInputValidity() {}
   _setEventListeners() {
     const inputs = [...form.querySelectorAll(this._settings.inputSelector)];
     const button = form.querySelector(this._settings.submitButtonSelector);
@@ -23,7 +26,6 @@ export class FormValidator {
       });
     });
   }
-
   _enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
