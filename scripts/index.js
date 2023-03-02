@@ -1,4 +1,7 @@
-import { openModal, closeModal } from "./utils";
+// import "./validate.js";
+// import { openModal, closeModal } from "./utils.js";
+// import { Card } from "./Card.js";
+// import { FormValidator } from "./FormValidator.js";
 
 const initialCards = [
   {
@@ -65,28 +68,28 @@ const addCardForm = addCardModal.querySelector(".popup__form");
 
 // open/close modal functions ->
 
-// const escValue = 27;
-// function closeModalByEscape(evt) {
-//   if (evt.keyCode === escValue) {
-//     const openedPopup = document.querySelector(".popup_opened");
-//     closeModal(openedPopup);
-//   }
-// }
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closeModal(evt.target);
-//   }
-// }
-// function openModal(modal) {
-//   modal.classList.add("popup_opened");
-//   document.addEventListener("keydown", closeModalByEscape);
-//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
-// }
-// function closeModal(modal) {
-//   modal.classList.remove("popup_opened");
-//   document.removeEventListener("keydown", closeModalByEscape);
-//   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-// }
+const escValue = 27;
+function closeModalByEscape(evt) {
+  if (evt.keyCode === escValue) {
+    const openedPopup = document.querySelector(".popup_opened");
+    closeModal(openedPopup);
+  }
+}
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
+function openModal(modal) {
+  modal.classList.add("popup_opened");
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
+}
+function closeModal(modal) {
+  modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+}
 
 // generate card ->
 function generateCard(cardData) {
@@ -97,15 +100,12 @@ function generateCard(cardData) {
   const deleteButton = listItem.querySelector(".card__delete-button");
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
-  // Like button feature
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-icon_type_active");
   });
-  // Delete card feature
   deleteButton.addEventListener("click", () => {
     listItem.remove();
   });
-  //Open preview feature
   image.addEventListener("click", () => {
     openModal(imageModal);
     previewImage.src = cardData.link;
