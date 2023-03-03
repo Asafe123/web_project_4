@@ -11,8 +11,6 @@ export class Card {
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
-
-    // this._cardTemplate = cardTemplateElement;
   }
 
   _handleLikeButton() {
@@ -38,6 +36,8 @@ export class Card {
     likeButton.addEventListener("click", this._handleLikeButton);
     deleteButton.addEventListener("click", this._handleDeleteCard);
     image.addEventListener("click", this._handlePreview);
+
+    return this._listItem;
   }
 
   // function generateCard(cardData) {

@@ -1,6 +1,6 @@
 // import "./validate.js";
 // import { openModal, closeModal } from "./utils.js";
-// import { Card } from "./Card.js";
+import { Card } from "./Card.js";
 // import { FormValidator } from "./FormValidator.js";
 
 const initialCards = [
@@ -118,13 +118,24 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
+
 function renderInitialCards() {
-  initialCards.forEach((cardData) => {
-    const card = generateCard(cardData);
-    renderCard(card);
-  });
+initialCards.forEach((cardData) => {
+  const card = new Card({cardData.name , cardData.link} , templateListItem);
+  const cardElement = card._getCardElement();
+  renderCard(cardElement);
+});
 }
 renderInitialCards();
+
+
+// function renderInitialCards() {
+//   initialCards.forEach((cardData) => {
+//     const card = generateCard(cardData);
+//     renderCard(card);
+//   });
+// }
+// renderInitialCards();
 
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
