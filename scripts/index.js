@@ -1,6 +1,6 @@
 // import "./validate.js";
 // import { openModal, closeModal } from "./utils.js";
-import { Card } from "./Card.js";
+// import { Card } from "./Card2.js";
 // import { FormValidator } from "./FormValidator.js";
 
 const initialCards = [
@@ -66,8 +66,6 @@ const cardLinkInput = document.querySelector(".popup__input_type_card-link");
 const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 
-// open/close modal functions ->
-
 const escValue = 27;
 function closeModalByEscape(evt) {
   if (evt.keyCode === escValue) {
@@ -90,8 +88,6 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
-
-// generate card ->
 function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
   const title = listItem.querySelector(".card__title");
@@ -103,39 +99,33 @@ function generateCard(cardData) {
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-icon_type_active");
   });
-  deleteButton.addEventListener("click", () => {
-    listItem.remove();
-  });
-  image.addEventListener("click", () => {
-    openModal(imageModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
-  });
+  function handleDeleteButton(item) {
+    deleteButton.addEventListener("click", () => {
+      item.remove();
+    });
+  }
+  function handlePreview() {
+    image.addEventListener("click", () => {
+      openModal(imageModal);
+      previewImage.src = cardData.link;
+      previewImage.alt = cardData.name;
+      previewTitle.textContent = cardData.name;
+    });
+  }
+  handleDeleteButton(listItem);
+  handlePreview();
   return listItem;
 }
-// render card to the website ->
 function renderCard(listItem) {
   list.prepend(listItem);
 }
-
 function renderInitialCards() {
-initialCards.forEach((cardData) => {
-  const card = new Card({cardData.name , cardData.link} , templateListItem);
-  const cardElement = card._getCardElement();
-  renderCard(cardElement);
-});
+  initialCards.forEach((cardData) => {
+    const card = generateCard(cardData);
+    renderCard(card);
+  });
 }
 renderInitialCards();
-
-
-// function renderInitialCards() {
-//   initialCards.forEach((cardData) => {
-//     const card = generateCard(cardData);
-//     renderCard(card);
-//   });
-// }
-// renderInitialCards();
 
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -162,13 +152,11 @@ editProfileButton.addEventListener("click", () => {
   openModal(editModal);
   fillProfileForm();
 });
+
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  // queryselector inputs
   const inputs = [...addCardModal.querySelectorAll(".popup__input")];
-  // queryselectot button
   const button = addCardModal.querySelector(".popup__button");
-  // call toggleButton StateButton
   toggleButtonState(inputs, button, setting);
 });
 // universal close button Handeler ->

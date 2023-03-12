@@ -54,5 +54,5 @@ const config = {
 
 const formElement = document.querySelector(".popup__form");
 
-const editFormValidator = new FormValidator(setting, editForm);
-const addCardFormValidator = new FormValidator(setting, addCardForm);
+const editFormValidator = new FormValidator(config, editForm);
+const addCardFormValidator = new FormValidator(config, addCardForm);

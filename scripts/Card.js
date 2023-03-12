@@ -14,7 +14,7 @@ export class Card {
   }
 
   _handleLikeButton() {
-    this._likeButton.classList.toggle("card__like-icon_type_active");
+    likeButton.classList.toggle("card__like-icon_type_active");
   }
   _handleDeleteCard() {
     this._listItem.remove();
