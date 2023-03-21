@@ -1,8 +1,3 @@
-// import "./validate.js";
-// import { openModal, closeModal } from "./utils.js";
-// import { Card } from "./Card2.js";
-// import { FormValidator } from "./FormValidator.js";
-
 const initialCards = [
   {
     name: "Tel-Aviv Landscape",
@@ -41,7 +36,7 @@ const setting = {
 // querySelectors =>
 const templateListItem = document
   .querySelector(".card-template")
-  .content.querySelector(".card");
+  .content.querySelector(".places__item");
 const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
@@ -96,13 +91,14 @@ function generateCard(cardData) {
   const deleteButton = listItem.querySelector(".card__delete-button");
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-icon_type_active");
-  });
+  likeButton.addEventListener("click", () => handleLikeButton());
   function handleDeleteButton(item) {
     deleteButton.addEventListener("click", () => {
       item.remove();
     });
+  }
+  function handleLikeButton() {
+    likeButton.classList.toggle("card__like-icon_type_active");
   }
   function handlePreview() {
     image.addEventListener("click", () => {
@@ -119,6 +115,8 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
+
+// Hi. i know here is where we should call the class.
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = generateCard(cardData);
@@ -152,14 +150,13 @@ editProfileButton.addEventListener("click", () => {
   openModal(editModal);
   fillProfileForm();
 });
-
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
   const inputs = [...addCardModal.querySelectorAll(".popup__input")];
   const button = addCardModal.querySelector(".popup__button");
   toggleButtonState(inputs, button, setting);
 });
-// universal close button Handeler ->
+
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
