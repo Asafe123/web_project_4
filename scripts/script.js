@@ -1,5 +1,3 @@
-import "./validation.js";
-
 const initialCards = [
   {
     name: "Tel-Aviv Landscape",
