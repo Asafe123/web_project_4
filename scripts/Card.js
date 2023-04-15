@@ -25,7 +25,7 @@ export class Card {
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
   }
-  _getCardElement() {
+  getCardElement() {
     this._listItem = this._templateCardSelector.cloneNode(true);
 
     const likeButton = this._listItem.querySelector(".card__like-icon");
@@ -39,28 +39,4 @@ export class Card {
 
     return this._listItem;
   }
-
-  // function generateCard(cardData) {
-
-  //   const likeButton = listItem.querySelector(".card__like-icon");
-  //   const image = listItem.querySelector(".card__image");
-  //   const deleteButton = listItem.querySelector(".card__delete-button");
-
-  //   image.style.backgroundImage = `url(${cardData.link})`;
-  //   likeButton.addEventListener("click", () => {
-  //     likeButton.classList.toggle("card__like-icon_type_active");
-  //   });
-  //   deleteButton.addEventListener("click", () => {
-  //     listItem.remove();
-  //   });
-  //   image.addEventListener("click", () => {
-  //     openModal(imageModal);
-  //     previewImage.src = cardData.link;
-  //     previewImage.alt = cardData.name;
-  //     previewTitle.textContent = cardData.name;
-  //   });
-  //   return listItem;
-
-  _addCardElements() {}
 }
-new Card();
