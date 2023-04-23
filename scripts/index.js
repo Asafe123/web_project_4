@@ -33,42 +33,34 @@ const setting = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-////////////////////
-// queryselectors///
-////////////////////
+// querySelectors =>
 const templateListItem = document
   .querySelector(".card-template")
-  .content.querySelector(".card");
+  .content.querySelector(".places__item");
 const list = document.querySelector(".places__list");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
-//modals queryselectors
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
-//close buttons queryselectors
 const editModalCloseButton = editModal.querySelector(".popup__close");
 const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
 const popupPreviewCloseButton = document.querySelector(
   ".popup__close_type_preview"
 );
-//open modal queryselectors
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
-// open preview queryselectors
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
-//inputs queryselectors
 const profileNameInput = document.querySelector(".popup__input_type_name");
 const profileOccupationInput = document.querySelector(
   ".popup__input_type_occupation"
 );
 const cardNameInput = document.querySelector(".popup__input_type_card-title");
 const cardLinkInput = document.querySelector(".popup__input_type_card-link");
-// forms queryselectors
 const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
-//open/close modal functions ->
+
 const escValue = 27;
 function closeModalByEscape(evt) {
   if (evt.keyCode === escValue) {
@@ -91,11 +83,6 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
-///////////////////
-///BIG FUNCTIONS///
-///////////////////
-
-// generate card ->
 function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
   const title = listItem.querySelector(".card__title");
@@ -104,27 +91,32 @@ function generateCard(cardData) {
   const deleteButton = listItem.querySelector(".card__delete-button");
   title.textContent = cardData.name;
   image.style.backgroundImage = `url(${cardData.link})`;
-  // Like button feature
-  likeButton.addEventListener("click", () => {
+  likeButton.addEventListener("click", () => handleLikeButton());
+  function handleDeleteButton(item) {
+    deleteButton.addEventListener("click", () => {
+      item.remove();
+    });
+  }
+  function handleLikeButton() {
     likeButton.classList.toggle("card__like-icon_type_active");
-  });
-  // Delete card feature
-  deleteButton.addEventListener("click", () => {
-    listItem.remove();
-  });
-  //Open preview feature
-  image.addEventListener("click", () => {
-    openModal(imageModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
-  });
+  }
+  function handlePreview() {
+    image.addEventListener("click", () => {
+      openModal(imageModal);
+      previewImage.src = cardData.link;
+      previewImage.alt = cardData.name;
+      previewTitle.textContent = cardData.name;
+    });
+  }
+  handleDeleteButton(listItem);
+  handlePreview();
   return listItem;
 }
-// render card to the website ->
 function renderCard(listItem) {
   list.prepend(listItem);
 }
+
+// Hi. i know here is where we should call the class.
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = generateCard(cardData);
@@ -132,9 +124,7 @@ function renderInitialCards() {
   });
 }
 renderInitialCards();
-/////////////////////////
-////Event listeners//////
-/////////////////////////
+
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const card = generateCard({
@@ -162,14 +152,11 @@ editProfileButton.addEventListener("click", () => {
 });
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  // queryselector inputs
   const inputs = [...addCardModal.querySelectorAll(".popup__input")];
-  // queryselectot button
   const button = addCardModal.querySelector(".popup__button");
-  // call toggleButton StateButton
   toggleButtonState(inputs, button, setting);
 });
-// universal close button Handeler ->
+
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");

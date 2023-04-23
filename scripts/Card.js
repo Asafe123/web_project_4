@@ -2,6 +2,7 @@ const imageModal = document.querySelector(".popup_type_image-modal");
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
 
+// Please observe syntax, and missingg code blocks.
 export class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
@@ -25,7 +26,7 @@ export class Card {
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
   }
-  getCardElement() {
+  _getCardElement() {
     this._listItem = this._templateCardSelector.cloneNode(true);
 
     const likeButton = this._listItem.querySelector(".card__like-icon");
@@ -40,3 +41,4 @@ export class Card {
     return this._listItem;
   }
 }
+new Card();
