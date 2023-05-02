@@ -4,9 +4,9 @@ export class FormValidator {
     this._formElement = formElement;
   }
   _showError(input, settings) {
-    const error = input.validationMessage;
+    const errorMessage = input.validationMessage;
     const errorElement = document.querySelector(`#${input.id}-error`);
-    errorElement.textContent = error;
+    errorElement.textContent = errorMessage;
     input.classList.add(settings.inputErrorClass);
   }
   _hideError(input, settings) {
@@ -15,10 +15,19 @@ export class FormValidator {
     input.classList.remove(settings.inputErrorClass);
   }
   _checkFormValidity(inputs) {
-    return inputs.every(
-      (_formElement) => this._formElement.input.validity.valid
-    );
+    return inputs.every((formElement) => formElement.input.validity.valid);
   }
+  _toggleButtonState(inputs, button, settings) {
+    const isFormValid = this.checkFormValidity(inputs);
+    if (isFormValid) {
+      button.disabled = false;
+      button.classList.remove(settings.inactiveButtonClass);
+    } else {
+      button.disabled = true;
+      button.classList.add(settings.inactiveButtonClass);
+    }
+  }
+
   _setEventListeners() {
     const { inputSelector, submitButtonSelector } = this._settings;
     const forms = [...document.querySelectorAll(settings.formSelector)];
@@ -26,16 +35,15 @@ export class FormValidator {
     const button = this._formElement.querySelector(
       this._settings.submitButtonSelector
     );
-    _;
 
-    // inputs.forEach((input) => {
-    //   input.addEventListener("input", () => {
-    //     toggleError(input, config);
-    //     toggleButtonState(inputs, button, config);
-    //   });
-    // });
+    inputs.forEach((input) => {
+      input.addEventListener("input", () => {
+        toggleError(input, config);
+        toggleButtonState(inputs, button, config);
+      });
+    });
   }
-  _enableValidation() {
+  enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
@@ -53,6 +61,3 @@ const config = {
 };
 
 const formElement = document.querySelector(".popup__form");
-
-const editFormValidator = new FormValidator(config, editForm);
-const addCardFormValidator = new FormValidator(config, addCardForm);
