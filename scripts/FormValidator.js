@@ -35,21 +35,16 @@ export class FormValidator {
     const button = this._formElement.querySelector(
       this._settings.submitButtonSelector
     );
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });  
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         toggleError(input, config);
         toggleButtonState(inputs, button, config);
       });
-    });
-  }
-  enableValidation() {
-    this._formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    this._setEventListeners(formElement);
-  }
-}
+    })
 
 const config = {
   formSelector: ".popup__form",
