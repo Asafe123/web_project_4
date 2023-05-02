@@ -45,6 +45,7 @@ export class FormValidator {
         toggleButtonState(inputs, button, config);
       });
     })
+  }
 
 const config = {
   formSelector: ".popup__form",
@@ -54,5 +55,4 @@ const config = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-
-const formElement = document.querySelector(".popup__form");
+}

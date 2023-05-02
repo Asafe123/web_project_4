@@ -1,5 +1,7 @@
-// import { Card } from "Card.js";
-// import { FormValidator } from "FormValidator.js";
+// import "./validate.js";
+// import { openModal, closeModal } from "./utils.js";
+// import { Card } from "./Card2.js";
+// import { FormValidator } from "./FormValidator.js";
 
 const initialCards = [
   {
@@ -117,7 +119,6 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
-
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = generateCard(cardData);

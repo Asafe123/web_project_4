@@ -33,7 +33,6 @@ export class Card {
     deleteButton.addEventListener("click", this._handleDeleteCard);
     image.addEventListener("click", this._handlePreview);
   }
-
   _getCardElement() {
     this._element = this._getElement(this._templateCardSelector).cloneNode(
       true
