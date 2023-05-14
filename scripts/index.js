@@ -1,7 +1,6 @@
-// import "./validate.js";
 // import { openModal, closeModal } from "./utils.js";
-// import { Card } from "./Card2.js";
 // import { FormValidator } from "./FormValidator.js";
+// import { Card } from "./Card.js";
 
 const initialCards = [
   {
@@ -121,7 +120,11 @@ function renderCard(listItem) {
 }
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
+    // const card = new Card({ name: cardData.name, link: cardData.link }, list);
+    // Card.generateCard({ name: cardData.name, link: cardData.link });
+    // DONT ERASE YET
     const card = generateCard(cardData);
+
     renderCard(card);
   });
 }

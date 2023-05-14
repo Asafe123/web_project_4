@@ -1,7 +1,7 @@
 function showError(input, settings) {
-  const error = input.validationMessage;
+  const errorMessage = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
-  errorElement.textContent = error;
+  errorElement.textContent = errorMessage;
   input.classList.add(settings.inputErrorClass);
 }
 function hideError(input, settings) {
