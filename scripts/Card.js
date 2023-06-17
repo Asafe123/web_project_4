@@ -8,16 +8,15 @@ export class Card {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
-
-    this._cardTemplate = document
-      .querySelector(templateCardSelector)
-      .content.querySelector(".card");
   }
 
   _handleLikeButton() {
     likeButton.classList.toggle("card__like-icon_type_active");
   }
   _handleDeleteCard() {
+    // need to use an arrow function like this:
+    // _handleDeleteCard = () => {}
+    //  and to call it on set event listeners
     this._listItem.remove();
   }
   _handlePreview() {
