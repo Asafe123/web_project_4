@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="HE">
+<html lang="EN">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +21,7 @@
     </header>
     <main>
       <section class="profile">
-        <div class="profile__wrapper">
+        <div class="profile__container">
           <img
             class="profile__image"
             src="./images/jackImage.jpg"
@@ -45,125 +45,121 @@
           class="profile__add-button"
         ></button>
       </section>
-      <section class="photo-grid">
-        <ul class="photo-grid__list">
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/yosemity.jpg"
-              alt="yosemity landscape"
-            />
-            <div class="card__text-area">
-              <h2 class="card__text">Yosemite Valley</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/Lake-Louise.png"
-              alt="Lake Louise"
-            />
-            <div class="card__text-area">
-              <h2 class="card__text">Lake Louise</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/Bald-Mountains.png"
-              alt="Bald Mountains"
-            />
-            <div class="card__text-area">
-              <h2 class="card__text">Bald Mountains</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/Latemar.png" alt="Latemar" />
-            <div class="card__text-area">
-              <h2 class="card__text">Latemar</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/Vanoise-National-park.png"
-              alt="Vanoise National park"
-            />
-            <div class="card__text-area">
-              <h2 class="card__text">Vanoise National park</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/Lago-di-Braies.png"
-              alt="Lago di Braies"
-            />
-            <div class="card__text-area">
-              <h2 class="card__text">Lago di Braies</h2>
-              <button
-                type="button"
-                class="card__like-icon"
-                aria-label="like"
-              ></button>
-            </div>
-          </li>
-        </ul>
+      <section class="places">
+        <ul class="places__list"></ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2021 Around The U.S.</p>
     </footer>
-    <div class="popup">
+    <!-- profile popup -->
+    <div class="popup popup_type_edit">
       <div class="popup__container">
         <button
           type="button"
           aria-label="close"
-          class="popup__close-button"
+          class="popup__close popup__close_type_form"
         ></button>
         <form name="popup" class="popup__form">
           <h2 class="popup__form-title">Edit profile</h2>
           <input
-            class="popup__form-input popup__form-input_type_name"
+            id="name-input"
+            class="popup__input popup__input_type_name"
             type="text"
             placeholder="Name"
             name="name"
+            value=""
+            required
+            minlength="2"
+            maxlength="40"
           />
+          <div class="popup__error-wrapper">
+            <span id="name-input-error" class="popup__error-massage"></span>
+          </div>
           <input
-            class="popup__form-input popup__form-input_type_occupation"
+            id="occupation-input"
+            class="popup__input popup__input_type_occupation"
             type="text"
             placeholder="About me"
             name="occupation"
+            value=""
+            required
+            minlength="2"
+            maxlength="200"
           />
-          <button type="submit" class="popup__submit-button">Save</button>
+          <div class="popup__error-wrapper">
+            <span
+              id="occupation-input-error"
+              class="popup__error-massage"
+            ></span>
+          </div>
+          <button type="submit" class="popup__button">Save</button>
         </form>
       </div>
     </div>
-    <script src="./scripts/script.js"></script>
+
+    <!-- addCard popup -->
+    <div class="popup popup_type_add-card">
+      <div class="popup__container">
+        <button
+          type="button"
+          aria-label="close"
+          class="popup__close popup__close_type_form"
+        ></button>
+        <form name="popup" class="popup__form">
+          <h2 class="popup__form-title">New place</h2>
+          <input
+            id="card-title"
+            class="popup__input popup__input_type_card-title"
+            type="text"
+            placeholder="Title"
+            name="card-title"
+            required
+            minlength="1"
+            maxlength="30"
+          />
+          <div class="popup__error-wrapper">
+            <span id="card-title-error" class="popup__error-massage"></span>
+          </div>
+          <input
+            id="card-link"
+            class="popup__input popup__input_type_card-link"
+            placeholder="Image URL"
+            name="card-link"
+            required
+            type="URL"
+          />
+          <div class="popup__error-wrapper">
+            <span id="card-link-error" class="popup__error-massage"></span>
+          </div>
+          <button type="submit" class="popup__button">Create</button>
+        </form>
+      </div>
+    </div>
+    <!--image preview popup -->
+    <div class="popup popup_type_image-modal">
+      <div class="popup__container popup__preview-container">
+        <button
+          type="button"
+          aria-label="close"
+          class="popup__close popup__close_type_preview"
+        ></button>
+        <img class="popup__preview-image" src=" " alt="" />
+        <p class="popup__preview-title"></p>
+      </div>
+    </div>
+    <template class="card-template">
+      <li class="places__item card">
+        <button type="button" class="card__delete-button"></button>
+        <div class="card__image"></div>
+        <div class="card__text-area">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-icon"></button>
+        </div>
+      </li>
+    </template>
   </body>
+  <script src="./scripts/index.js"></script>
+  <!-- <script src="./scripts/card.js"></script> -->
+  <script src="./scripts/validate.js"></script>
 </html>
