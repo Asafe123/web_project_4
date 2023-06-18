@@ -1,7 +1,3 @@
-// import { openModal, closeModal } from "./utils.js";
-// import { FormValidator } from "./FormValidator.js";
-// import { Card } from "./Card.js";
-
 const initialCards = [
   {
     name: "Tel-Aviv Landscape",
@@ -28,6 +24,7 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
 const setting = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -118,13 +115,11 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
+
+// Hi. i know here is where we should call the class.
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
-    // const card = new Card({ name: cardData.name, link: cardData.link }, list);
-    // Card.generateCard({ name: cardData.name, link: cardData.link });
-    // DONT ERASE YET
     const card = generateCard(cardData);
-
     renderCard(card);
   });
 }

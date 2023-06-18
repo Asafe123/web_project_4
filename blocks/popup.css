@@ -148,6 +148,7 @@
     margin: 16px auto 25px auto;
   }
   .popup__preview-image {
+    max-width: 240px;
   }
   .popup__close {
     position: absolute;
