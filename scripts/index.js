@@ -1,3 +1,5 @@
+import { Card } from "./Card.js";
+
 const initialCards = [
   {
     name: "Tel-Aviv Landscape",
@@ -83,6 +85,16 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
+
+function handlePreview(element) {
+  element.addEventListener("click", () => {
+    openModal(imageModal);
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewTitle.textContent = cardData.name;
+  });
+}
+
 function generateCard(cardData) {
   const listItem = templateListItem.cloneNode(true);
   const title = listItem.querySelector(".card__title");
@@ -100,27 +112,21 @@ function generateCard(cardData) {
   function handleLikeButton() {
     likeButton.classList.toggle("card__like-icon_type_active");
   }
-  function handlePreview() {
-    image.addEventListener("click", () => {
-      openModal(imageModal);
-      previewImage.src = cardData.link;
-      previewImage.alt = cardData.name;
-      previewTitle.textContent = cardData.name;
-    });
-  }
+
   handleDeleteButton(listItem);
-  handlePreview();
+  handlePreview(image);
   return listItem;
 }
 function renderCard(listItem) {
   list.prepend(listItem);
 }
 
-// Hi. i know here is where we should call the class.
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
-    const card = generateCard(cardData);
-    renderCard(card);
+    const card = new Card(cardData, ".card-template");
+    const cardElement = card._getCardElement();
+    debugger;
+    renderCard(cardElement);
   });
 }
 renderInitialCards();

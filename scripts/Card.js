@@ -1,44 +1,45 @@
+// import { handlePreview } from "/.index.js";
 const imageModal = document.querySelector(".popup_type_image-modal");
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
 
-// Please observe syntax, and missingg code blocks.
+// handlePreview(image);
 export class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;
-
-    this._cardTemplate = document
-      .querySelector(templateCardSelector)
-      .content.querySelector(".card");
   }
 
   _handleLikeButton() {
-    likeButton.classList.toggle("card__like-icon_type_active");
+    this.likeButton.classList.toggle("card__like-icon_type_active");
   }
-  _handleDeleteCard() {
-    this._listItem.remove();
+  _handleDeleteCard = (c) => {
+    c.remove();
+    this._element = null;
+  };
+
+  _getElement() {
+    return document.querySelector(templateCardSelector);
   }
-  _handlePreview() {
-    openModal(imageModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
+
+  _setEventListeners() {
+    this.likeButton.addEventListener("click", this._handleLikeButton);
+    this.deleteButton.addEventListener("click", this._handleDeleteCard);
+    this.image.addEventListener("click", this._handlePreview);
   }
+
   _getCardElement() {
-    this._listItem = this._templateCardSelector.cloneNode(true);
-
-    const likeButton = this._listItem.querySelector(".card__like-icon");
-    const image = this._listItem.querySelector(".card__image");
-    const deleteButton = this._listItem.querySelector(".card__delete-button");
-    this._listItem.querySelector(".card__title").textContent = this._name;
-    image.style.backgroundImage = `url(${this._link})`;
-    likeButton.addEventListener("click", this._handleLikeButton);
-    deleteButton.addEventListener("click", this._handleDeleteCard);
-    image.addEventListener("click", this._handlePreview);
-
-    return this._listItem;
+    this._element = document
+      .querySelector(this._templateCardSelector)
+      .content.cloneNode(true);
+    this.likeButton = this._element.querySelector(".card__like-icon");
+    this.image = this._element.querySelector(".card__image");
+    this.deleteButton = this._element.querySelector(".card__delete-button");
+    const cardName = this._name;
+    this._element.querySelector(".card__title").textContent = cardName;
+    this.image.style.backgroundImage = `url(${this._link})`;
+    this._setEventListeners();
+    return this._element;
   }
 }
-new Card();
