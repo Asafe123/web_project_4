@@ -107,6 +107,7 @@ function generateCard(cardData) {
   function handleDeleteButton(item) {
     deleteButton.addEventListener("click", () => {
       item.remove();
+      console.log(item);
     });
   }
   function handleLikeButton() {

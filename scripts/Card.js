@@ -3,6 +3,12 @@ const imageModal = document.querySelector(".popup_type_image-modal");
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
 
+function openModal(modal) {
+  modal.classList.add("popup_opened");
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
+}
+
 // handlePreview(image);
 export class Card {
   constructor({ name, link }, templateCardSelector) {
@@ -14,11 +20,14 @@ export class Card {
   _handleLikeButton = () => {
     this.likeButton.classList.toggle("card__like-icon_type_active");
   };
-  _handleDeleteButton = (item) => {
-    item.remove();
+  _handleDeleteButton = (element) => {
+    element.remove();
   };
   _handlePreview = () => {
-    handlePreview(this.image);
+    openModal(imageModal);
+    this.previewImage.src = this._link;
+    this.previewImage.alt = this._name;
+    this.previewTitle.textContent = this._name;
   };
   _setEventListeners() {
     this.likeButton.addEventListener("click", this._handleLikeButton);
