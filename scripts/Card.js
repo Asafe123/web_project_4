@@ -1,4 +1,4 @@
-// import { handlePreview } from "/.index.js";
+import { handlePreview } from "./index.js";
 const imageModal = document.querySelector(".popup_type_image-modal");
 const previewImage = document.querySelector(".popup__preview-image");
 const previewTitle = document.querySelector(".popup__preview-title");
@@ -11,24 +11,20 @@ export class Card {
     this._templateCardSelector = templateCardSelector;
   }
 
-  _handleLikeButton() {
+  _handleLikeButton = () => {
     this.likeButton.classList.toggle("card__like-icon_type_active");
-  }
-  _handleDeleteCard = (c) => {
-    c.remove();
-    this._element = null;
   };
-
-  _getElement() {
-    return document.querySelector(templateCardSelector);
-  }
-
+  _handleDeleteButton = () => {
+    this._element.remove();
+  };
+  _handlePreview = () => {
+    handlePreview(this.image);
+  };
   _setEventListeners() {
     this.likeButton.addEventListener("click", this._handleLikeButton);
-    this.deleteButton.addEventListener("click", this._handleDeleteCard);
+    this.deleteButton.addEventListener("click", this._handleDeleteButton);
     this.image.addEventListener("click", this._handlePreview);
   }
-
   _getCardElement() {
     this._element = document
       .querySelector(this._templateCardSelector)

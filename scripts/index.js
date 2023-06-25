@@ -86,7 +86,7 @@ function closeModal(modal) {
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 
-function handlePreview(element) {
+export function handlePreview(element) {
   element.addEventListener("click", () => {
     openModal(imageModal);
     previewImage.src = cardData.link;
@@ -125,7 +125,6 @@ function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = new Card(cardData, ".card-template");
     const cardElement = card._getCardElement();
-    debugger;
     renderCard(cardElement);
   });
 }
