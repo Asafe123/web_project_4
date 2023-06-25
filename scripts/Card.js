@@ -14,8 +14,8 @@ export class Card {
   _handleLikeButton = () => {
     this.likeButton.classList.toggle("card__like-icon_type_active");
   };
-  _handleDeleteButton = () => {
-    this._element.remove();
+  _handleDeleteButton = (item) => {
+    item.remove();
   };
   _handlePreview = () => {
     handlePreview(this.image);
