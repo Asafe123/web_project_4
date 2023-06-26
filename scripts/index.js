@@ -45,11 +45,6 @@ const profileOccupation = document.querySelector(".profile__occupation");
 const editModal = document.querySelector(".popup_type_edit");
 const addCardModal = document.querySelector(".popup_type_add-card");
 const imageModal = document.querySelector(".popup_type_image-modal");
-const editModalCloseButton = editModal.querySelector(".popup__close");
-const addCardModalCloseButton = addCardModal.querySelector(".popup__close");
-const popupPreviewCloseButton = document.querySelector(
-  ".popup__close_type_preview"
-);
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 const previewImage = document.querySelector(".popup__preview-image");
@@ -64,18 +59,18 @@ const editForm = editModal.querySelector(".popup__form");
 const addCardForm = addCardModal.querySelector(".popup__form");
 
 const escValue = 27;
-function closeModalByEscape(evt) {
+export function closeModalByEscape(evt) {
   if (evt.keyCode === escValue) {
     const openedPopup = document.querySelector(".popup_opened");
     closeModal(openedPopup);
   }
 }
-function closeModalOnRemoteClick(evt) {
+export function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.target);
   }
 }
-function openModal(modal) {
+export function openModal(modal) {
   modal.classList.add("popup_opened");
   document.addEventListener("keydown", closeModalByEscape);
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
@@ -121,7 +116,6 @@ function generateCard(cardData) {
 function renderCard(listItem) {
   list.prepend(listItem);
 }
-
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = new Card(cardData, ".card-template");
@@ -162,7 +156,6 @@ addCardButton.addEventListener("click", () => {
   const button = addCardModal.querySelector(".popup__button");
   toggleButtonState(inputs, button, setting);
 });
-
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
