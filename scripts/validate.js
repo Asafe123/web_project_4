@@ -9,11 +9,11 @@ function hideError(input, settings) {
   errorElement.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 }
-function toggleError(input, config) {
+function toggleError(input, settings) {
   if (input.validity.valid) {
-    hideError(input, config);
+    hideError(input, settings);
   } else {
-    showError(input, config);
+    showError(input, settings);
   }
 }
 function checkFormValidity(inputs) {
@@ -39,13 +39,13 @@ function enableValidation(settings) {
     const button = form.querySelector(settings.submitButtonSelector);
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        toggleError(input, config);
-        toggleButtonState(inputs, button, config);
+        toggleError(input, settings);
+        toggleButtonState(inputs, button, settings);
       });
     });
   });
 }
-const config = {
+const settings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -53,4 +53,4 @@ const config = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-enableValidation(config);
+enableValidation(settings);

@@ -1,4 +1,20 @@
+import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
+
+const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+const profileFormValidator = new FormValidator(settings, ".popup_type_edit");
+const imageFormValidator = new FormValidator(settings, ".popup_type_add-card");
+
+profileFormValidator.enableValidation(###);
+imageFormValidator.enableValidation(###);
 
 const initialCards = [
   {
