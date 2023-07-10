@@ -1,18 +1,7 @@
-const settings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
-const formElement = document.querySelector(".popup__form");
-
 export class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
-    const input = this._settings.inputSelector;
   }
   _showError = (input, settings) => {
     const error = input.validationMessage;
@@ -38,7 +27,7 @@ export class FormValidator {
   };
 
   _toggleButtonState = (inputs, button, settings) => {
-    const isFormValid = this.checkFormValidity(inputs);
+    const isFormValid = this._checkFormValidity(inputs);
     if (isFormValid) {
       button.disabled = false;
       button.classList.remove(settings.inactiveButtonClass);
@@ -60,7 +49,11 @@ export class FormValidator {
     });
   }
   enableValidation = () => {
-    this.inputs = [this._formElement.querySelectorAll(settings.inputSelector)];
+    this.inputs = [
+      this._formElement.querySelectorAll(this._settings.inputSelector),
+      3,
+    ];
+
     this.button = this._formElement.querySelector(
       settings.submitButtonSelector
     );

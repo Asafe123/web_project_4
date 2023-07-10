@@ -10,8 +10,8 @@ const settings = {
   errorClass: "popup__error_visible",
 };
 
-const profileFormValidator = new FormValidator(settings, ".popup_type_edit");
-const imageFormValidator = new FormValidator(settings, ".popup_type_add-card");
+const profileFormValidator = new FormValidator(settings, ".popup__edit-form");
+const imageFormValidator = new FormValidator(settings, ".popup__image-form");
 
 profileFormValidator.enableValidation();
 imageFormValidator.enableValidation();
