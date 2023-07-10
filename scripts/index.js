@@ -13,8 +13,8 @@ const settings = {
 const profileFormValidator = new FormValidator(settings, ".popup_type_edit");
 const imageFormValidator = new FormValidator(settings, ".popup_type_add-card");
 
-profileFormValidator.enableValidation(###);
-imageFormValidator.enableValidation(###);
+profileFormValidator.enableValidation();
+imageFormValidator.enableValidation();
 
 const initialCards = [
   {

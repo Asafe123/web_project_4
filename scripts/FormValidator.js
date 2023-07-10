@@ -12,10 +12,8 @@ export class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
-
     const input = this._settings.inputSelector;
   }
-
   _showError = (input, settings) => {
     const error = input.validationMessage;
     const errorElement = document.querySelector(`#${input.id}-error`);
@@ -54,23 +52,42 @@ export class FormValidator {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    input.addEventListener("input", () => {
-      this._toggleError(input, settings);
-    });
-  }
-  enableValidation = (form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    const inputs = [...form.querySelectorAll(settings.inputSelector)];
-    const button = form.querySelector(settings.submitButtonSelector);
-
-    inputs.forEach((input) => {
+    this.inputs.forEach((input) => {
       input.addEventListener("input", () => {
         _toggleError(input, settings);
         _toggleButtonState(inputs, button, settings);
       });
     });
-    this._setEventListeners;
+  }
+  enableValidation = () => {
+    this.inputs = [this._formElement.querySelectorAll(settings.inputSelector)];
+    this.button = this._formElement.querySelector(
+      settings.submitButtonSelector
+    );
+    this._setEventListeners();
+    return;
   };
 }
+
+// _setEventListeners() {
+//   this._formElement.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//   });
+//   input.addEventListener("input", () => {
+//     this._toggleError(input, settings);
+//   });
+// }
+
+// enableValidation = () => {
+//   const inputs = [this._formElement.querySelectorAll(settings.inputSelector)];
+//   const button = this._formElement.querySelector(
+//     settings.submitButtonSelector
+//   );
+//   inputs.forEach((input) => {
+//     input.addEventListener("input", () => {
+//       _toggleError(input, settings);
+//       _toggleButtonState(inputs, button, settings);
+//     });
+//   });
+//   this._setEventListeners;
+// };
