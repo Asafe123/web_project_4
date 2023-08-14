@@ -1,4 +1,4 @@
-import { FormValidator } from "./FormValidator.js";
+// import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
 
 const settings = {
@@ -9,12 +9,14 @@ const settings = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
+const editForm = document.querySelector(".popup__edit-form");
+const addCardForm = document.querySelector(".popup__image-form");
 
-const profileFormValidator = new FormValidator(settings, ".popup__edit-form");
-const imageFormValidator = new FormValidator(settings, ".popup__image-form");
+// const editFormValidator = new FormValidator(settings, editForm);
+// const addCardFormValidator = new FormValidator(settings, addCardForm);
 
-profileFormValidator.enableValidation();
-imageFormValidator.enableValidation();
+// editFormValidator.enableValidation();
+// addCardFormValidator.enableValidation();
 
 const initialCards = [
   {
@@ -71,8 +73,6 @@ const profileOccupationInput = document.querySelector(
 );
 const cardNameInput = document.querySelector(".popup__input_type_card-title");
 const cardLinkInput = document.querySelector(".popup__input_type_card-link");
-const editForm = editModal.querySelector(".popup__form");
-const addCardForm = addCardModal.querySelector(".popup__form");
 
 const escValue = 27;
 export function closeModalByEscape(evt) {
@@ -135,7 +135,7 @@ function renderCard(listItem) {
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = new Card(cardData, ".card-template");
-    const cardElement = card._getCardElement();
+    const cardElement = card.getCardElement();
     renderCard(cardElement);
   });
 }

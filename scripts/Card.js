@@ -17,20 +17,18 @@ export class Card {
   _handleDeleteButton = () => {
     this._element.remove();
   };
-
   _handlePreview = () => {
     openModal(imageModal);
     previewImage.src = this._link;
     previewImage.alt = this._name;
     previewTitle.textContent = this._name;
   };
-
   _setEventListeners() {
     this.likeButton.addEventListener("click", this._handleLikeButton);
     this.deleteButton.addEventListener("click", this._handleDeleteButton);
     this.image.addEventListener("click", this._handlePreview);
   }
-  _getCardElement() {
+  getCardElement() {
     this._element = document
       .querySelector(this._templateCardSelector)
       .content.querySelector(".places__item")
