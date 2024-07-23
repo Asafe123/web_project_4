@@ -1,5 +1,10 @@
 .page {
-  background-color: #000000;
+  background: linear-gradient(
+    135deg,
+    rgba(29, 184, 253, 1) 33%,
+    rgba(252, 176, 69, 1) 72%,
+    rgba(234, 182, 84, 1) 86%
+  );
   max-width: 880px;
   margin: 0 auto;
   color: #fff;

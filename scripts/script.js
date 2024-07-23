@@ -1,11 +1,11 @@
 const initialCards = [
   {
-    name: "Tel-Aviv Landscape",
-    link: "https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2020/06/Best-areas-to-stay-in-Tel-Aviv-scaled-e1593008399620.jpg?w=1506&ssl=1",
+    name: "asterix park paris",
+    link: "https://cdn-imgix-open.headout.com/MB/Themepark/Asterix+Park+Paris/Overview+Image/5.jpg",
   },
   {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    name: "Disneyland Tokio",
+    link: "https://media1.tokyodisneyresort.jp/images/adventure/event/2157_thumbnail.jpg?mod=20220906160950",
   },
   {
     name: "Bald Mountains",
