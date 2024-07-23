@@ -9,4 +9,24 @@
   margin: 0 auto;
   color: #fff;
   align-items: center;
+
+  background: rgb(40, 64, 184);
+  background: radial-gradient(
+    circle,
+    rgba(40, 64, 184, 1) 0%,
+    rgba(175, 55, 0, 1) 100%
+  );
+  animation: animate 15s ease infinite;
+  background-size: 400% 400%;
+}
+@keyframes animate {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
