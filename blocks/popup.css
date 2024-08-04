@@ -114,9 +114,11 @@
 .popup__preview-container {
   position: relative;
   background: transparent;
+  border-radius: 10px;
 }
 .popup__preview-title {
-  font-size: 12px;
+  font-weight: bold;
+  font-size: 24px;
   font-family: "Inter", Arial, sans-serif;
 }
 .popup__preview-image {
@@ -124,6 +126,7 @@
   margin: 0 0;
   display: block;
   max-height: 75vh;
+  border-radius: 3vh;
 }
 .popup__input_type_error {
   color: rgba(255, 0, 0, 1);
@@ -150,6 +153,7 @@
   }
   .popup__preview-image {
     max-width: 240px;
+    border-radius: 10px;
   }
   .popup__close {
     position: absolute;
