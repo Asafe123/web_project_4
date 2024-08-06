@@ -128,6 +128,10 @@
   max-height: 75vh;
   border-radius: 3vh;
 }
+.popup__preview-image:hover {
+  animation: jello-vertical 0.9s both;
+}
+
 .popup__input_type_error {
   color: rgba(255, 0, 0, 1);
   border-bottom: solid 1px rgba(255, 0, 0, 1);
